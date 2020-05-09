@@ -1,2 +1,2 @@
-# Deep_Learning_Tutorial
+# Vacation2AI
 Repo for Deep Learning tutorials

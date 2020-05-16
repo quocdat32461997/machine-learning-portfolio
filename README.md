@@ -1,2 +1,5 @@
 # Vacation2AI
-Repo for Deep Learning tutorials
+This repo is share my tutorials/resources that I have gone through in AI journey
+
+* PyTorch
+* Tensorflow

@@ -6,5 +6,5 @@ Folders:
 * Tensorflow
 
 Tutorials:
-* [Digiti Classifier](./tensorflow/Tensorflow_Digiti_Classifier.ipynb)
+* [Digit Classifier](./tensorflow/Tensorflow_Digiti_Classifier.ipynb)
 * [Fashion Classifier](./pytorch/PyTorch_Fashion_Classifier.ipynb)

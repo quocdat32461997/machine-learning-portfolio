@@ -22,6 +22,8 @@ This repo is share my tutorials/resources that I have gone through in AI journey
 
 [Conferences](#Conferences)
 
+[Others](#Others)
+
 ---
 
 ### Natural Language Understanding
@@ -50,3 +52,6 @@ This repo is share my tutorials/resources that I have gone through in AI journey
 ### NVTabular
 
 ### Conferences
+
+### Others
+[@EricNgo Medium](https://medium.com/@datngo_79115)

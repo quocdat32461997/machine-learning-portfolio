@@ -1,7 +1,7 @@
 # Vacation2AI
 This repo is share my tutorials/resources that I have gone through in AI journey
 
-Index:
+### Index:
 [Tensorflow](./tensorflow/Tensorflow_Digit_Classifier.ipynb)
 
 [PyTorch](./pytorch/PyTorch_Fashion_Classifier.ipynb)
@@ -17,6 +17,8 @@ Index:
 [HugeCTR](#HugeCTR)
 
 [NVTabular](#NVTabular)
+
+---
 
 ### Natural Language Understanding
 [Sequence Tagging](./nlu/#SequenceTagging)

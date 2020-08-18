@@ -18,6 +18,10 @@ This repo is share my tutorials/resources that I have gone through in AI journey
 
 [NVTabular](#NVTabular)
 
+[Neural Engineering](#NeuralEngineering)
+
+[Conferences](#Conferences)
+
 ---
 
 ### Natural Language Understanding
@@ -39,7 +43,10 @@ This repo is share my tutorials/resources that I have gone through in AI journey
 
 [Deep Factorize Machiens]()
 
+### Neural Engineering
 
 ### HugeCTR
 
 ### NVTabular
+
+### Conferences

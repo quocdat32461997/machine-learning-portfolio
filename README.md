@@ -12,3 +12,4 @@ Index:
 [Sequence Tagging](https://github.com/quocdat32461997/BiLSTM-CRF)
 
 ### Computer Vision
+[Object Segmentation](./computer-vision/#MaskRCNN)

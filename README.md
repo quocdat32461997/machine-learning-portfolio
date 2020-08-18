@@ -18,19 +18,21 @@ Index:
 
 [NVTabular](#NVTabular)
 
-### [Natural Language Understanding](./nlu)
+### Natural Language Understanding
 [Sequence Tagging](./nlu/#SequenceTagging)
 [Intent Detection](./nlu/#IntentDetection)
 
-### [Computer Vision](./cv)
+### Computer Vision
 [Object Segmentation](./cv/#ObjectSegmentation)
+[Object Detection](./cv/#ObjectDetection)
+[Optical Character Recognition](./cv/#OpticalCharacterRecognition)
 
-### [Recommendation Systems](./recsys)
+### Recommendation Systems
 [Wide & Deep Learning]()
 [Deep Cross Network]()
 [Deep Factorize Machiens]()
 
 
-### [HugeCTR]()
+### HugeCTR
 
-### [NVTabular]()
+### NVTabular

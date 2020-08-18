@@ -20,16 +20,21 @@ Index:
 
 ### Natural Language Understanding
 [Sequence Tagging](./nlu/#SequenceTagging)
+
 [Intent Detection](./nlu/#IntentDetection)
 
 ### Computer Vision
 [Object Segmentation](./cv/#ObjectSegmentation)
+
 [Object Detection](./cv/#ObjectDetection)
+
 [Optical Character Recognition](./cv/#OpticalCharacterRecognition)
 
 ### Recommendation Systems
 [Wide & Deep Learning]()
+
 [Deep Cross Network]()
+
 [Deep Factorize Machiens]()
 
 

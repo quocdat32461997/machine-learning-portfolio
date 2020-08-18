@@ -5,7 +5,8 @@ Index:
 [Tensorflow](./tensorflow/Tensorflow_Digit_Classifier.ipynb)
 [PyTorch](./pytorch/PyTorch_Fashion_Classifier.ipynb)
 [Deep Learning Trainig](https://arxiv.org/pdf/1206.5533.pdf)
-[Computer Vision](#Computer Vision)
+[Computer Vision](#ComputerVision)
+[Natural Language Understanding](#NaturalLanguageUnderstanding)
 
 ### Natural Language Understanding
 [Sequence Tagging](https://github.com/quocdat32461997/BiLSTM-CRF)

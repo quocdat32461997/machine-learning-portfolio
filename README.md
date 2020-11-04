@@ -60,10 +60,12 @@ Collections of :
 ---
 
 ## Others
-* [Tensorflow](https://github.com/quocdat32461997/Vacation2AI/blob/master/tensorflow/Tensorflow_Digit_Classifier.ipynb)
-* [PyTorch](https://github.com/quocdat32461997/Vacation2AI/tree/master/pytorch)
-* Titanic Survival Prediction
+#### - Tensorflow
+[Link](https://github.com/quocdat32461997/Vacation2AI/blob/master/tensorflow/Tensorflow_Digit_Classifier.ipynb)
+#### - PyTorch
+[Link](https://github.com/quocdat32461997/Vacation2AI/tree/master/pytorch)
+#### - Titanic Survival Prediction
 	- To-be-added
 	- Link
-* Intro-to-nlp
+### - Intro-to-nlp
 	- [UTDallas - Human Language Technologies](https://github.com/quocdat32461997/intro-to-nlp)

@@ -16,7 +16,6 @@ Collections of :
 	- Implementation of Mask-RCNN in Tensorflow 2.0 for Object Detection
 	- Link: https://github.com/quocdat32461997/Mask_RCNN
 
-### Optical Character Recognition
 #### Pulications
 	- [CBPR 2020: End-to-End Hierarchical Relation Extraction for Generic Form Understanding]()
 	- [Mask-RCNN](https://arxiv.org/abs/1703.06870#:~:text=The%20method%2C%20called%20Mask%20R,CNN%2C%20running%20at%205%20fps.)

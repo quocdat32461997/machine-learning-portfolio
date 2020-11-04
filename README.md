@@ -45,9 +45,9 @@ Collections of :
 	- A Chatbot using Intent-Classifier and NER models to parse users' requests and lookup answers from internal database or Google Search API.
 	- Link: https://github.com/quocdat32461997/borot
 
-### Intro-to-nlp: [UTDallas - Human Language Technologies](https://github.com/quocdat32461997/intro-to-nlp)
-
 ## Others
 #### - Titanic Survival Prediction
 	- To-be-added
 	- Link
+#### - Intro-to-nlp
+	- [UTDallas - Human Language Technologies](https://github.com/quocdat32461997/intro-to-nlp)

@@ -4,6 +4,11 @@ Collections of Machine Learning and Deep Learning implementations
 ---
 
 ## Computer Vision
+### Image Classification
+#### Chest Disease Classification upon X-Rays
+- Fine-tune of VGG16 for Chest Disease Classification
+- Link: 
+
 ### Object Detection
 #### - Mask-RCNN
 - Implementation of Mask-RCNN in Tensorflow 2.0 for Object Detection

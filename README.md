@@ -1,5 +1,7 @@
 # Vacation2AI
-Collections of Machine Learning and Deep Learning implementations
+Collections of :
+* Interesting research papers
+* My Machine Learning and Deep Learning implementations
 
 ---
 

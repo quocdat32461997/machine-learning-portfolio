@@ -29,6 +29,10 @@ Modules:
 	- [You Look Only Once](https://arxiv.org/abs/1506.02640)
 		* A unified Object Detection model consisting of DarkNet (a Deep CNN) and Non-Max-Suppresion at output branches. 
 		* Pros: simple and less computation than Mask-RCNN that object classification is produced by ConvNet layers.
+	- [Single Image Super Resolution based on a Modified U-net with Mixed Gradient Loss](https://arxiv.org/pdf/1911.09428.pdf)
+		* Introduction to loss functions (MGE and MixGE) for Super-Image-Super-Resolution problems using U-Net
+		* MSE, a common loss function is limited to learn errors based on pixel values, not the object curve (aka gradient error).
+		* To solve gradient error introduced by Super-Resolution, Mean-Gradient-Error (MGE) utilizes Sobel oeprator to shapren curves of objects in predicted and true images which are then computed into difference-square. 
 ---
 
 ## Natural Language Processing/Understanding

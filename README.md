@@ -39,3 +39,8 @@ Collections of Machine Learning and Deep Learning implementations
 - Link: https://github.com/quocdat32461997/borot
 
 ### Intro-to-nlp: [UTDallas - Human Language Technologies](https://github.com/quocdat32461997/intro-to-nlp)
+
+## Others
+#### - Titanic Survival Prediction
+- 
+- Link

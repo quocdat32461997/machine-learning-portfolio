@@ -22,7 +22,7 @@ Modules:
 	- Link: https://github.com/quocdat32461997/Mask_RCNN
 
 #### Pulications
-	- [CBPR 2020: End-to-End Hierarchical Relation Extraction for Generic Form Understanding]()
+	- [End-to-End Hierarchical Relation Extraction for Generic Form Understanding]()
 	- [Mask-RCNN](https://arxiv.org/abs/1703.06870#:~:text=The%20method%2C%20called%20Mask%20R,CNN%2C%20running%20at%205%20fps.)
 		* Includes Region Proposal Network (simple CNN) and ROIAlign layer (Non-Max-Suppression) that both shares hidden features from CNN backbone (ResNet or VGG)
 		* Limits: Object Classification using Fully-Connect-Network (prone to overfitting and large computation cost).

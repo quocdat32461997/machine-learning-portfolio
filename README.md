@@ -9,7 +9,7 @@ Collections of :
 ### Image Classification
 #### Chest Disease Classification upon X-Rays
 	- Fine-tune of VGG16 for Chest Disease Classification
-	- Link: 
+	- Link: https://github.com/quocdat32461997/HealthCareAI_2019/blob/master/code-lab-3-chestxray8-vgg16.ipynb
 
 ### Object Detection
 #### - Mask-RCNN

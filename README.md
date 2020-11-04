@@ -69,7 +69,7 @@ Modules:
 #### - PyTorch
 [Link](https://github.com/quocdat32461997/Vacation2AI/tree/master/pytorch)
 #### - Titanic Survival Prediction
-	- To-be-added
-	- Link
+	- Implementations and validations of multiple ML algorithms (SVM, Random Forest, Decision Tree, Logistic Regression) on Titanic dataset
+	- Link: https://github.com/quocdat32461997/Vacation2AI/blob/master/others/titanic_survival_rate_prediction.pdf
 ### - Intro-to-nlp
 	- [UTDallas - Human Language Technologies](https://github.com/quocdat32461997/intro-to-nlp)

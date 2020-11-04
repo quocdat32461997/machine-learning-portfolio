@@ -45,6 +45,8 @@ Collections of :
 	- A Chatbot using Intent-Classifier and NER models to parse users' requests and lookup answers from internal database or Google Search API.
 	- Link: https://github.com/quocdat32461997/borot
 
+---
+
 ## Others
 #### - Titanic Survival Prediction
 	- To-be-added

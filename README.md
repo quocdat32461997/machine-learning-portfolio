@@ -4,9 +4,9 @@ Collections of :
 * My Machine Learning and Deep Learning implementations
 
 Modules:
-* [Computer Vision](ComputerVision)
-* [Natural Language Processing/Understanding](NaturalLanguageProcessing/Understanding)
-* [Others](others)
+* Computer Vision
+* Natural Language Processing/Understanding
+* Other
 
 ---
 

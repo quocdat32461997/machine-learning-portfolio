@@ -1,5 +1,6 @@
 # Vacation2AI
 Collections of :
+* Machine Learning Interview Prep
 * Interesting research papers
 * My Machine Learning and Deep Learning implementations
 
@@ -7,6 +8,10 @@ Modules:
 * Computer Vision
 * Natural Language Processing/Understanding
 * Other
+
+---
+## Machine Learning Interview Prep
+
 
 ---
 

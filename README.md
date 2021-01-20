@@ -38,17 +38,17 @@ This consists:
 
   
 ## Research
-- Neural Entrainment to Speech Envelope in response to Perceived Sound Quality
+- [Neural Entrainment to Speech Envelope in response to Perceived Sound Quality](https://ieeexplore.ieee.org/abstract/document/8717078/)
   - Authors: **Dat Quoc Ngo**, Garret Oliver, Gleb Tcheslavski, Chin-Tuan Tan. 
   - Affiliation: Undergraduate Research Assistant at Auditory Perception Engineering Laboratory, UT Dallas
   - Abstract: The extent, to which people listen to and perceive the speech content at different noise levels varies from individual to individual. In past research projects, the speech intelligibility was determined by rating assessment, which suffered from variation of subjects' physical features. The purpose of this study is to investigate electroencephalography (EEG) by implementing multi-variate Temporal Response Function (mTRF) to examine neural responses to speech stimuli at different sound and noise levels. The result of this study shows that the front-central area of the brain clearly shows the envelope entrainment to speech stimuli.
   - Status: [Accepted to IEEE Neural Engineering Conference 2019](https://ieeexplore.ieee.org/abstract/document/8717078/)
-- Linear and Nonlinear Reconstruction of Speech Envelope from EEG - @APEL, UT Dallas
+- [Linear and Nonlinear Reconstruction of Speech Envelope from EEG](https://quocdat32461997.github.io/assets/linear_and_nonlinear_reconstruction_of_speech_envelope_from_eeg.pdf)
   - Authors: **Dat Quoc Ngo**, Garret Oliver, Gleb Tcheslavski, Fei Chen, Chin-Tuan Tan. 
   - Affiliation: Undergraduate Research Assistant at Auditory Perception Engineering Laboratory, UT Dallas
   - Abstract: Electroencephalography (EEG) is a non-invasive method of measuring cortical activities in association to speech communication. Recent studies have shown that EEG at multiple channels across head scalps were colinearly entrained to speech envelope. They were able to reconstruct speech envelope from EEG across scalp by using ridge regression. However, the predicted speech envelopes reconstructed by this linear model approach did not yield a high correlation when compared with the original speech envelopes. The outcome of those studies inspired us to explore a non-linear alternative with Deep Learning in reconstructing speech envelope from EEG. We proposed and developed an Encoder-Decoder model based on Convolutional (CONV) and Long-Short-Term-Memory (LSTM) layers to non-linearly reconstruct speech envelope from EEG. Our finding showed that correlation between the original speech envelope and the predicted speech envelope reconstructed with our model yielded a much higher value than the equivalence reconstructed with a linear model and a single-layer LSTM model. Our Encoder-Decoder model outperformed the regularized linear regression and the single-layer LSTM model with 134% and 21% improvement in correlation.
   - Status: [Preprint](https://quocdat32461997.github.io/assets/linear_and_nonlinear_reconstruction_of_speech_envelope_from_eeg.pdf)
-- Exploiting Context for Robust to Label Noise in Depression Diagnosis of Self-reported Statements - @deepkapha.ai
+- [Exploiting Context for Robust to Label Noise in Depression Diagnosis of Self-reported Statements]()
   - Authors: **Dat Quoc Ngo**, Aninda Bhattacharjee, Jie Mei, Tannistha Maiti
   - Affiliation: Visiting AI Researcher at deepkapha.ai
-   - Status: [in submission]
+   - Status: [in submission]()

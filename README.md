@@ -89,6 +89,9 @@ This consists:
     - Proposed Conditional Mask Language Modeling (Conditional MSM) and a novel text data augmentation for labeled sntences to train Conditinoal BERT.
     - Idea : replace Segmentation Embedding with vocabulary-indexed labels when pretraining. 
     - Result : Conditional BERT is applicable for contextual data augmentation that improves BERT in several NLP tasks. Also, Conditional BERT could be used for text style transfer (replacing words w/o changing context).
+- [DistilBERT, a distilled version of BERT: smaller, faster, cheaper, and lighter](https://arxiv.org/abs/1910.01108v1)
+    - A smaller version of BERT with equivalent performance but less number of layers (6 in Distil BERT and 12 in BERT)
+    - More practical for real-time inference
 
 ### - Others
 #### Label Noise

@@ -69,13 +69,14 @@ This is a list of:
 ## Interesting research papers
 ---
 
-## Others
-* Install Tensorflow on AMD GPUs [link](https://medium.com/analytics-vidhya/install-tensorflow-2-for-amd-gpus-87e8d7aeb812)
-
-
+## Machine Learning
 #### - Titanic Survival Prediction
 	- Implementations and validations of multiple ML algorithms (SVM, Random Forest, Decision Tree, Logistic Regression) on Titanic dataset
 	- Link: https://github.com/quocdat32461997/Vacation2AI/blob/master/others/titanic_survival_rate_prediction.pdf
+---
+## Others
+* [Install Tensorflow on AMD GPUs](https://medium.com/analytics-vidhya/install-tensorflow-2-for-amd-gpus-87e8d7aeb812)
+
 ### - Intro-to-nlp
 	- [UTDallas - Human Language Technologies](https://github.com/quocdat32461997/intro-to-nlp)
 

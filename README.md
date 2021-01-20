@@ -32,9 +32,12 @@ This consists:
 ## Research
 - Neural Entrainment to Speech Envelope in response to Perceived Sound Quality
   - Utilized Regression algorithms to simulate neural perceptino to speaking languages and accurately identify active brain channels in response to speech to reduce signal noise in Brain-Computer-Interfaces
-  - Accepted: to [IEEE Neural Engineering Conference 2019](https://ieeexplore.ieee.org/abstract/document/8717078/)
+  - Status: [Accepted to IEEE Neural Engineering Conference 2019](https://ieeexplore.ieee.org/abstract/document/8717078/)
 - Linear and Nonlinear Reconstruction of Speech Envelope from EEG
   - Developed a **Denoising CNN-LSTM model** with the **signal augmentation method** to reconstruct Speech from Neural Signals (2x accuracy than baseline models)
-  - [Preprint](https://quocdat32461997.github.io/assets/linear_and_nonlinear_reconstruction_of_speech_envelope_from_eeg.pdf)
+  - Status: [Preprint](https://quocdat32461997.github.io/assets/linear_and_nonlinear_reconstruction_of_speech_envelope_from_eeg.pdf)
 - Exploiting Context for Robust to Label Noise in Depression Diagnosis of Self-reported Statements
-   
+   - Demonstrates benefits of exploiting context for robustness to label noise for sentiment analysis, specifically depression detection
+   - Introduced Reddit Self-reported Depression Diagnosis dataset with label noise: 200K statements collected from Jan 2018 - Nov 2020
+   - Proposed to replace Segmentation Embedding with Negative Embedding to emphaisze the frequent negative word usage in depressed text. Improved baselines (BERT, DistilBERT) from 76% to 89%.
+   - Status: in submission

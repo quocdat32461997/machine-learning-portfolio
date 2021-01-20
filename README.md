@@ -1,9 +1,8 @@
-# Vacation2AI
+# machine-learning-portfolio
 This consists:
 * timeline-based AI/ML/DL projects that I have worked on
 * My publications
 * Research papers that I have read and found interesting/practical
-* Machine Learning Interview Prep
 * Others
 
 ---

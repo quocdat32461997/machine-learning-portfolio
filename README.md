@@ -30,7 +30,7 @@ This consists:
 - [Name Entity Recognizer](https://github.com/quocdat32461997/NER) Implemented **BiLSTM-CRF** for **Name Entity Recognition**, built the data pipeline in *Tensorflow*, and deploy in *Flask*
 - [Intent Classifier](https://github.com/quocdat32461997/intent_classifier)
     - Trained **Suport-Vector-Machine (SVM) and GradientBoosting** on text features extracted by **TF-IDF** for Intent-Classification tasks. Accuracy: 97% for training and 80% validation
-- [CS6320: NLPf inal project - Borot](https://github.com/quocdat32461997/borot)
+- [CS6320: NLP final project - Borot](https://github.com/quocdat32461997/borot)
     -	Built **Chatbot Question & Answering** with *Flask, Scikit-learn, Tensorflow, and SQL*.
     - Implemented **Information Retrieval** with **Intent Classifier (SVM), Name-Entity-Recognizer (BiLSTM-CRF) and TF-IDF** to retrieve answers in response to questions. Implemented OOP to collect users’ QA queries for personalization.
 - [Mask-RCNN](https://github.com/quocdat32461997/Mask_RCNN) - Implementation of Mask-RCNN in Tensorflow >= 2.0.0

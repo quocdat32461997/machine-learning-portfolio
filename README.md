@@ -1,17 +1,8 @@
 # Vacation2AI
-Collections of :
-* Machine Learning Interview Prep
-* Interesting research papers
+This is a list of:
 * My Machine Learning and Deep Learning implementations
-
-Modules:
-* Computer Vision
-* Natural Language Processing/Understanding
-* Other
-
----
-## Machine Learning Interview Prep
-[Link](./ml_interview_prep.md)
+* Research papers that I have read and found interesting/practical
+* Machine Learning Interview Prep
 
 ---
 
@@ -71,14 +62,23 @@ Modules:
 		* Hence, XLNet (Autogressive Language Modeling) implements [Permutation Language Modeling](https://jmlr.org/papers/volume17/16-272/16-272.pdf) to generate permutation of token positions. This allows XLNet to learn dependency between a token and tokens before it only which represent for Autogressive Language Modeling (remember RNN and LSTM?).
 
 ---
+## Optimization & Loss
+
+---
+
+## Interesting research papers
+---
 
 ## Others
-#### - Tensorflow
-[Link](https://github.com/quocdat32461997/Vacation2AI/blob/master/tensorflow/Tensorflow_Digit_Classifier.ipynb)
-#### - PyTorch
-[Link](https://github.com/quocdat32461997/Vacation2AI/tree/master/pytorch)
+* Install Tensorflow on AMD GPUs [link](https://medium.com/analytics-vidhya/install-tensorflow-2-for-amd-gpus-87e8d7aeb812)
+
+
 #### - Titanic Survival Prediction
 	- Implementations and validations of multiple ML algorithms (SVM, Random Forest, Decision Tree, Logistic Regression) on Titanic dataset
 	- Link: https://github.com/quocdat32461997/Vacation2AI/blob/master/others/titanic_survival_rate_prediction.pdf
 ### - Intro-to-nlp
 	- [UTDallas - Human Language Technologies](https://github.com/quocdat32461997/intro-to-nlp)
+
+---
+## Machine Learning Interview Prep
+[Link](./ml_interview_prep.md)

@@ -57,7 +57,7 @@ This consists:
 - [Exploiting Context for Robust to Label Noise in Depression Diagnosis of Self-reported Statements]()
   - Authors: **Dat Quoc Ngo**, Aninda Bhattacharjee, Jie Mei, Tannistha Maiti
   - Affiliation: Visiting AI Researcher at deepkapha.ai
-   - Status: [in submission]()
+   - Status: [in preparation]()
 
 
 ---

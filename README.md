@@ -13,13 +13,7 @@ This consists:
   - Achived: Best Desk to Best Bedside Award at 2018 Med U-Hack at UT Southwestern
   
 ### - 2019
-- Neural Engineering research projects (2018 - 2019) advised by Prof. Tan Chin-Tuan at the Auditory Perception Engineering Laboratory, UT Dallas:
-  - Neural Entrainment to Speech Envelope in response to Perceived Sound Quality
-    - Utilized Regression algorithms to simulate neural perceptino to speaking languages and accurately identify active brain channels in response to speech to reduce signal noise in Brain-Computer-Interfaces
-    - Accepted: to [IEEE Neural Engineering Conference 2019](https://ieeexplore.ieee.org/abstract/document/8717078/)
-  - Linear and Nonlinear Reconstruction of Speech Envelope from EEG
-    - Developed a **Denoising CNN-LSTM model** with the **signal augmentation method** to reconstruct Speech from Neural Signals (2x accuracy than baseline models)
-    - [Preprint](https://quocdat32461997.github.io/assets/linear_and_nonlinear_reconstruction_of_speech_envelope_from_eeg.pdf)
+- Neural Engineering research projects (2018 - 2019) advised by Prof. Tan Chin-Tuan at the Auditory Perception Engineering Laboratory, UT Dallas
 - [Chest X-Ray Abnormal Detection](https://github.com/quocdat32461997/HealthCareAI_2019)
   - Applied multiple Transfer Learning models and hyper-parameter tuning to detect abnormalities in chest x-rays with 88% accuracy.
   - Achived: 1st Prize at the HealthCare AI 2019 Hackathon at Uni. of Texas at Dallas
@@ -34,3 +28,12 @@ This consists:
 - [NLP-course final project: Borot](https://github.com/quocdat32461997/borot)
   -	Built **Chatbot Question & Answering** with *Flask, Scikit-learn, Tensorflow, and SQL*.
   - Implemented **Information Retrieval** with **Intent Classifier (SVM), Name-Entity-Recognizer (BiLSTM-CRF) and TF-IDF** to retrieve answers in response to questions. Implemented OOP to collect users’ QA queries for personalization.
+  
+## Research
+- Neural Entrainment to Speech Envelope in response to Perceived Sound Quality
+  - Utilized Regression algorithms to simulate neural perceptino to speaking languages and accurately identify active brain channels in response to speech to reduce signal noise in Brain-Computer-Interfaces
+  - Accepted: to [IEEE Neural Engineering Conference 2019](https://ieeexplore.ieee.org/abstract/document/8717078/)
+- Linear and Nonlinear Reconstruction of Speech Envelope from EEG
+  - Developed a **Denoising CNN-LSTM model** with the **signal augmentation method** to reconstruct Speech from Neural Signals (2x accuracy than baseline models)
+  - [Preprint](https://quocdat32461997.github.io/assets/linear_and_nonlinear_reconstruction_of_speech_envelope_from_eeg.pdf)
+- 

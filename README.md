@@ -36,4 +36,5 @@ This consists:
 - Linear and Nonlinear Reconstruction of Speech Envelope from EEG
   - Developed a **Denoising CNN-LSTM model** with the **signal augmentation method** to reconstruct Speech from Neural Signals (2x accuracy than baseline models)
   - [Preprint](https://quocdat32461997.github.io/assets/linear_and_nonlinear_reconstruction_of_speech_envelope_from_eeg.pdf)
-- 
+- Exploiting Context for Robust to Label Noise in Depression Diagnosis of Self-reported Statements
+   

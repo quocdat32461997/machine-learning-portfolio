@@ -1,10 +1,10 @@
 # machine-learning-portfolio
 This consists:
-* timeline-based AI/ML/DL projects that I have worked on
+* My timeline-based AI/ML/DL projects that I have worked on
 * My publications
-* Research papers that I have read and found interesting/practical
-* Others
-
+* Research papers that I have read and found interesting/practical (comments included)
+* My blogs and presentations
+* Interview prep
 ---
 
 ## Projects
@@ -98,6 +98,8 @@ This consists:
       - Consists of a 3-element tuple {subject, relation, object}
       - Unlike BERT w/ 3 embedings, COMET has 2 embeddings: tokens and positions
     - Architecture is similar to BERT, except the output layer of Transformer
+- [Unsupervised Commonsense Question Answering with Self-Talk](https://arxiv.org/pdf/2004.05483.pdf)
+    - To be added
 
 ### - Others
 #### Label Noise

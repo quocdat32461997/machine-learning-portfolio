@@ -122,6 +122,6 @@ Learning](https://arxiv.org/pdf/2003.10471.pdf)
 - [ML Engineer Notes](https://docs.google.com/document/d/1mo1edEotJDpvT4fxL8-_VFBwS0e4OHqLnxd5I0yy-ps/edit?usp=sharing)
 
 ## AI Courses I took
-- [Natural Language Processing](./nlp)
-- [Machine Learning]()
-- [Information Retrieval]()
+- [Natural Language Processing](./nlp-course)
+- [Machine Learning](./ml-course)
+- [Information Retrieval](./ir-course)

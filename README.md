@@ -1,10 +1,11 @@
 # machine-learning-portfolio
 This consists:
-* timeline-based AI/ML/DL projects that I have worked on
+* My timeline-based AI/ML/DL projects that I have worked on
 * My publications
-* Research papers that I have read and found interesting/practical
-* Others
-
+* Research papers that I have read and found interesting/practical (comments included)
+* My blogs and presentations
+* Interview prep
+* AI courses I took
 ---
 
 ## Projects
@@ -62,7 +63,7 @@ This consists:
 
 ---
 
-## Papers that I have read and found useful
+## Papers that I have read and found useful (comments included)
 ### - Computer Vision
 - [You Look Only ONce](https://arxiv.org/abs/1506.02640)
     - A unified Object Detection model consisting of DarkNet (Deep CNN) and Non-Max-Suppression at the output layer to group multiple bounding-boxes for the final object. Multi losses (object loss, class loss, and position loss) were computed.
@@ -92,6 +93,14 @@ This consists:
 - [DistilBERT, a distilled version of BERT: smaller, faster, cheaper, and lighter](https://arxiv.org/abs/1910.01108v1)
     - A smaller version of BERT with equivalent performance but less number of layers (6 in Distil BERT and 12 in BERT)
     - More practical for real-time inference
+- [COMET: Commonsense Transformers for Automatic Knowledge Graph Construction](https://arxiv.org/pdf/1906.05317.pdf)
+    - A Transformer-based model to generate/complete knowledge graphs.
+    - Input encoding:
+      - Consists of a 3-element tuple {subject, relation, object}
+      - Unlike BERT w/ 3 embedings, COMET has 2 embeddings: tokens and positions
+    - Architecture is similar to BERT, except the output layer of Transformer
+- [Unsupervised Commonsense Question Answering with Self-Talk](https://arxiv.org/pdf/2004.05483.pdf)
+    - To be added
 
 ### - Others
 #### Label Noise
@@ -111,3 +120,8 @@ Learning](https://arxiv.org/pdf/2003.10471.pdf)
 
 ## My machine-learning-engineer interview prep
 - [ML Engineer Notes](https://docs.google.com/document/d/1mo1edEotJDpvT4fxL8-_VFBwS0e4OHqLnxd5I0yy-ps/edit?usp=sharing)
+
+## AI Courses I took
+- [Natural Language Processing](./nlp-course)
+- [Machine Learning](./ml-course)
+- [Information Retrieval](./ir-course)

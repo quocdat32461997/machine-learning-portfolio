@@ -62,7 +62,7 @@ This consists:
 
 ---
 
-## Papers that I have read and found useful
+## Papers that I have read and found useful (comments included)
 ### - Computer Vision
 - [You Look Only ONce](https://arxiv.org/abs/1506.02640)
     - A unified Object Detection model consisting of DarkNet (Deep CNN) and Non-Max-Suppression at the output layer to group multiple bounding-boxes for the final object. Multi losses (object loss, class loss, and position loss) were computed.
@@ -92,6 +92,12 @@ This consists:
 - [DistilBERT, a distilled version of BERT: smaller, faster, cheaper, and lighter](https://arxiv.org/abs/1910.01108v1)
     - A smaller version of BERT with equivalent performance but less number of layers (6 in Distil BERT and 12 in BERT)
     - More practical for real-time inference
+- [COMET: Commonsense Transformers for Automatic Knowledge Graph Construction](https://arxiv.org/pdf/1906.05317.pdf)
+    - A Transformer-based model to generate/complete knowledge graphs.
+    - Input encoding:
+      - Consists of a 3-element tuple {subject, relation, object}
+      - Unlike BERT w/ 3 embedings, COMET has 2 embeddings: tokens and positions
+    - Architecture is similar to BERT, except the output layer of Transformer
 
 ### - Others
 #### Label Noise

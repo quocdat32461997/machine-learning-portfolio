@@ -5,6 +5,7 @@ This consists:
 * Research papers that I have read and found interesting/practical (comments included)
 * My blogs and presentations
 * Interview prep
+* AI courses I took
 ---
 
 ## Projects
@@ -119,3 +120,8 @@ Learning](https://arxiv.org/pdf/2003.10471.pdf)
 
 ## My machine-learning-engineer interview prep
 - [ML Engineer Notes](https://docs.google.com/document/d/1mo1edEotJDpvT4fxL8-_VFBwS0e4OHqLnxd5I0yy-ps/edit?usp=sharing)
+
+## AI Courses I took
+- [Natural Language Processing](./nlp)
+- [Machine Learning]()
+- [Information Retrieval]()

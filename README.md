@@ -101,7 +101,8 @@ This consists:
     - Architecture is similar to BERT, except the output layer of Transformer
 - [Unsupervised Commonsense Question Answering with Self-Talk](https://arxiv.org/pdf/2004.05483.pdf)
     - To be added
-
+- [Visual Question Answering To-read-list](https://github.com/zixuwang1996/VQA-reading-list)
+    - Collection of to-read publications regarding Visual Question Answering
 ### - Others
 #### Label Noise
 - [Label Noise Types and Their Effects on Deep

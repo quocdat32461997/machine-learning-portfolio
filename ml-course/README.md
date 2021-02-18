@@ -1,2 +1,2 @@
-# machin-learning
-This repo consists of coursework for UTDallas-CS6375-Machine-Learning course.
+# Machine Learning
+This consists of coursework for UTDallas-CS6375-Machine-Learning course.

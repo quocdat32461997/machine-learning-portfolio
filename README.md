@@ -112,7 +112,7 @@ Learning](https://arxiv.org/pdf/2003.10471.pdf)
     - Proposed to exploit graphical context to improve CNN's performance in classification tasks.
 ---
 
-## Blogs/presentations/contributions
+## Blogs-presentations-contributions
 - [Install Tensorflow on AMD GPUs](https://medium.com/analytics-vidhya/install-tensorflow-2-for-amd-gpus-87e8d7aeb812)
 - [Blogs on Deep Learning](https://datngo-79115.medium.com/)
 - [explore ml @DSC-UTD](https://github.com/DSC-UTDallas/explore-ml) - workshops over fundamental machine learning algorithms

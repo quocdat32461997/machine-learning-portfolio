@@ -1,11 +1,11 @@
 # machine-learning-portfolio
 This consists:
-* My timeline-based AI/ML/DL projects that I have worked on
-* My publications
-* Research papers that I have read and found interesting/practical (comments included)
-* My blogs/presentations/repos
-* Interview prep
-* What I have learnt
+* [My timeline-based AI/ML/DL projects that I have worked on](#Projects)
+* [My publications](#Publications)
+* [Research papers that I have read and found interesting/practical (comments included)](#Papers that I have read and found useful (comments included))
+* [My blogs/presentations/repos](#My blogs/presentations/repos)
+* [Interview prep]()
+* [What I have learnt](#What I have learnt)
 ---
 
 ## Projects
@@ -59,7 +59,6 @@ This consists:
   - Affiliation: Visiting AI Researcher at deepkapha.ai
   - Abstract: With a high prevalence in both high and low-middle-income countries, depression is re- garded as one of the most common mental disorders around the globe, placing heavy burdens at a societal level. Depression severely impairs the daily functioning and quality of life of individuals of different ages, and may eventually lead to self-harm and suicide. In recent years, advancements have emerged in the fields of deep learning and natural language understanding, leading to improved detection and assessment of depression using methods including convolutional neural networks (CNNs) and bidirectional encoder representation from transformers (BERT). Nevertheless, previous work focused on data ac- quired through brain functional magnetic resonance imaging (fMRI), clinical screening or interviews, thus required labeling by domain experts. Therefore, in this study, we used the Reddit Self-reported Depression Diagnosis dataset, an uncurated text-based dataset, to enable detection of depression using easily accessible data. To reduce the negative impact of label noise on the performance of transformers-based classification, we proposed two data augmentation approaches, i.e., Negative Embedding and Empathy for BERT and DistilBERT, to exploit the usage of pronouns and affective, depression-related words in the dataset. As a result, the use of Negative Embedding improves the accuracy of the model by 31% compared with a baseline BERT and a DistilBERT, whereas Empathy underperforms baseline methods by 21%. Taken together, we argue that the detection of depression can be performed with high accuracy on datasets with label noise using various augmentation approaches and BERT.
   - Status: [in submission](https://github.com/quocdat32461997/quocdat32461997.github.io/blob/master/assets/ACL_IJCNLP_2021___Final.pdf)
-
 
 ---
 

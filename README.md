@@ -3,9 +3,9 @@ This consists:
 * My timeline-based AI/ML/DL projects that I have worked on
 * My publications
 * Research papers that I have read and found interesting/practical (comments included)
-* My blogs and presentations
+* My blogs/presentations/repos
 * Interview prep
-* AI courses I took
+* What I have learnt
 ---
 
 ## Projects
@@ -113,16 +113,17 @@ Learning](https://arxiv.org/pdf/2003.10471.pdf)
     - Proposed to exploit graphical context to improve CNN's performance in classification tasks.
 ---
 
-## My blogs/presentations
+## My blogs/presentations/contributions
 - [Install Tensorflow on AMD GPUs](https://medium.com/analytics-vidhya/install-tensorflow-2-for-amd-gpus-87e8d7aeb812)
 - [Blogs on Deep Learning](https://datngo-79115.medium.com/)
 - [explore ml @DSC-UTD](https://github.com/DSC-UTDallas/explore-ml) - workshops over fundamental machine learning algorithms
+- [Introduction to Python](https://github.com/pekkalacd/Introduction-to-Python)
 
 
 ## My machine-learning-engineer interview prep
 - [ML Engineer Notes](https://docs.google.com/document/d/1mo1edEotJDpvT4fxL8-_VFBwS0e4OHqLnxd5I0yy-ps/edit?usp=sharing)
 
-## AI Courses I took
+## What I have learnt
 - [Natural Language Processing](./nlp-course)
 - [Machine Learning](./ml-course)
 - [Information Retrieval](./ir-course)

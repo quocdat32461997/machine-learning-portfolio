@@ -2,7 +2,7 @@
 This consists:
 * [My timeline-based AI/ML/DL projects that I have worked on](#Projects)
 * [My publications](#Publications)
-* [Research papers that I have read and found interesting/practical](#Papers-that-I have-read-and-found-useful)
+* [Research papers that I have read and found interesting/practical](#Papers-that-I-have-read-and-found-useful)
 * [My blogs/presentations/contributions](#My-blogs/presentations/contributions)
 * [Interview prep](#My-machine-learning-engineer-interview-prep)
 * [What I have learnt](#What-I-have-learnt)

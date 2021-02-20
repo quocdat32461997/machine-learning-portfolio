@@ -9,6 +9,7 @@ File: main.py - for executing homework 1
 import os
 import re
 import argparse
+from collections import defaultdict
 
 def tokenize(text):
 	"""
@@ -19,11 +20,11 @@ def tokenize(text):
 	Outputs:
 		- 
 	"""
-	# strip heading, tailing, and in-middle whitepsace
-	text = re.sub(pattern = '[ ]+', repl = ' ', string = text)
-
 	# substitue puncutations with whitespace
 	text = re.sub(pattern = '[.!?\\-<>]*', repl = '', string = text)
+
+	# strip heading, tailing, and in-middle whitepsace
+	text = re.sub(pattern = '\s\s+', repl = ' ', string = text)
 
 	# strip heading and taling whitepsace
 	text = text.strip()
@@ -61,19 +62,40 @@ def main(args):
 	files = os.listdir(args.path)
 	files = [os.path.join(args.path, x) for x in files]
 
+	# initialize dictionary to store term, its frequency, and positions
+	terms = defaultdict(int)
+
 	for file in files:
 		# read text
 		with open(file) as f:
 			text = f.read()
 		# process
 		text = process(text)
-		print(text)
-		print()
 		# tokenization
 		tokens = tokenize(text)
-		print(tokens)
-		input()
 		# stemming
+
+		# store terms
+		for token in tokens:
+			terms[token] += 1
+
+	# print required results
+	print("Number of tokens in Cranfield text collections is {}.".format(sum([v for v in terms.values()])))
+	print("Number of unique tokens in Cranfield text collections is {}.".format(len(terms)))
+
+	# sort terms by descending frequency
+	terms = sorted(terms.items(), key = lambda x : x[-1], reverse = True)
+
+	# print tokens occuring only once
+	onces = []
+	while terms:
+		if terms[-1][-1] == 1: # occuring only once
+			onces.append(terms.pop()[0])
+		else:
+			break # stop
+
+	print("List of words occuring only once: {}".format(onces))
+	print("List of 30 most frequent words in the collection: {}".format([x[0] for x in terms[:30]]))
 
 	return None
 

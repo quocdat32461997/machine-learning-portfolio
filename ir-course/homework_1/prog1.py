@@ -64,6 +64,7 @@ def main(args):
 
 	# initialize dictionary to store term, its frequency, and positions
 	terms = defaultdict(int)
+	num_word = []
 
 	for file in files:
 		# read text
@@ -79,6 +80,9 @@ def main(args):
 		for token in tokens:
 			terms[token] += 1
 
+		# add number of words in a doc
+		num_word.append(len(tokens))
+
 	# print required results
 	print("Number of tokens in Cranfield text collections is {}.".format(sum([v for v in terms.values()])))
 	print("Number of unique tokens in Cranfield text collections is {}.".format(len(terms)))
@@ -87,15 +91,17 @@ def main(args):
 	terms = sorted(terms.items(), key = lambda x : x[-1], reverse = True)
 
 	# print tokens occuring only once
-	onces = []
+	onces = 0
 	while terms:
 		if terms[-1][-1] == 1: # occuring only once
-			onces.append(terms.pop()[0])
+			terms.pop()
+			onces += 1
 		else:
 			break # stop
 
-	print("List of words occuring only once: {}".format(onces))
+	print("The number of words that occur only once in the text ollection is {}".format(onces))
 	print("List of 30 most frequent words in the collection: {}".format([x[0] for x in terms[:30]]))
+	print("Average number of words in a document is {}".format(sum(num_word) / len(num_word)))
 
 	return None
 

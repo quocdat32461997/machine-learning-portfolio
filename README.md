@@ -2,7 +2,7 @@
 This consists:
 * [My timeline-based AI/ML/DL projects that I have worked on](#Projects)
 * [My publications](#Publications)
-* [Research papers that I have read and found interesting/practical (comments included)](#Papers that I have read and found useful (comments included))
+* [Research papers that I have read and found interesting/practical](#Papers that I have read and found useful)
 * [My blogs/presentations/contributions](#My blogs/presentations/contributions)
 * [Interview prep](#My machine-learning-engineer interview prep)
 * [What I have learnt](#What I have learnt)
@@ -62,7 +62,7 @@ This consists:
 
 ---
 
-## Papers that I have read and found useful (comments included)
+## Papers that I have read and found useful
 ### - Computer Vision
 - [You Look Only ONce](https://arxiv.org/abs/1506.02640)
     - A unified Object Detection model consisting of DarkNet (Deep CNN) and Non-Max-Suppression at the output layer to group multiple bounding-boxes for the final object. Multi losses (object loss, class loss, and position loss) were computed.

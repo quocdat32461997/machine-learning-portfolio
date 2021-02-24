@@ -21,7 +21,7 @@ def tokenize(text):
 		- 
 	"""
 	# substitue puncutations with whitespace
-	text = re.sub(pattern = '[.!?\\-<>]*', repl = '', string = text)
+	text = re.sub(pattern = '[.!?\\<>]*', repl = '', string = text)
 
 	# strip heading, tailing, and in-middle whitepsace
 	text = re.sub(pattern = '\s\s+', repl = ' ', string = text)

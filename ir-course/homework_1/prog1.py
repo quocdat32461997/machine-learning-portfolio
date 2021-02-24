@@ -34,13 +34,6 @@ def tokenize(text):
 
 	return text
 
-def stem(text):
-	"""
-	stem - function to stem text
-	"""
-
-	return text
-
 def process(text, pattern = '(<\/?[a-zA-Z]*>)|(\n)'):
 	"""
 	process - process SGML-styled text into preferred text

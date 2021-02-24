@@ -1,11 +1,11 @@
 # machine-learning-portfolio
 This consists:
-* My timeline-based AI/ML/DL projects that I have worked on
-* My publications
-* Research papers that I have read and found interesting/practical (comments included)
-* My blogs and presentations
-* Interview prep
-* AI courses I took
+* [My timeline-based AI/ML/DL projects that I have worked on](#Projects)
+* [My publications](#Publications)
+* [Research papers that I have read and found interesting/practical](#Papers-that-I-have-read-and-found-useful)
+* [My blogs/presentations/contributions](#Blogs-presentations-contributions)
+* [Interview prep](#My-machine-learning-engineer-interview-prep)
+* [What I have learnt](#What-I-have-learnt)
 ---
 
 ## Projects
@@ -60,10 +60,9 @@ This consists:
   - Abstract: With a high prevalence in both high and low-middle-income countries, depression is re- garded as one of the most common mental disorders around the globe, placing heavy burdens at a societal level. Depression severely impairs the daily functioning and quality of life of individuals of different ages, and may eventually lead to self-harm and suicide. In recent years, advancements have emerged in the fields of deep learning and natural language understanding, leading to improved detection and assessment of depression using methods including convolutional neural networks (CNNs) and bidirectional encoder representation from transformers (BERT). Nevertheless, previous work focused on data ac- quired through brain functional magnetic resonance imaging (fMRI), clinical screening or interviews, thus required labeling by domain experts. Therefore, in this study, we used the Reddit Self-reported Depression Diagnosis dataset, an uncurated text-based dataset, to enable detection of depression using easily accessible data. To reduce the negative impact of label noise on the performance of transformers-based classification, we proposed two data augmentation approaches, i.e., Negative Embedding and Empathy for BERT and DistilBERT, to exploit the usage of pronouns and affective, depression-related words in the dataset. As a result, the use of Negative Embedding improves the accuracy of the model by 31% compared with a baseline BERT and a DistilBERT, whereas Empathy underperforms baseline methods by 21%. Taken together, we argue that the detection of depression can be performed with high accuracy on datasets with label noise using various augmentation approaches and BERT.
   - Status: [in submission](https://github.com/quocdat32461997/quocdat32461997.github.io/blob/master/assets/ACL_IJCNLP_2021___Final.pdf)
 
-
 ---
 
-## Papers that I have read and found useful (comments included)
+## Papers that I have read and found useful
 ### - Computer Vision
 - [You Look Only ONce](https://arxiv.org/abs/1506.02640)
     - A unified Object Detection model consisting of DarkNet (Deep CNN) and Non-Max-Suppression at the output layer to group multiple bounding-boxes for the final object. Multi losses (object loss, class loss, and position loss) were computed.
@@ -113,16 +112,17 @@ Learning](https://arxiv.org/pdf/2003.10471.pdf)
     - Proposed to exploit graphical context to improve CNN's performance in classification tasks.
 ---
 
-## My blogs/presentations
+## Blogs-presentations-contributions
 - [Install Tensorflow on AMD GPUs](https://medium.com/analytics-vidhya/install-tensorflow-2-for-amd-gpus-87e8d7aeb812)
 - [Blogs on Deep Learning](https://datngo-79115.medium.com/)
 - [explore ml @DSC-UTD](https://github.com/DSC-UTDallas/explore-ml) - workshops over fundamental machine learning algorithms
+- [Introduction to Python](https://github.com/pekkalacd/Introduction-to-Python)
 
 
 ## My machine-learning-engineer interview prep
 - [ML Engineer Notes](https://docs.google.com/document/d/1mo1edEotJDpvT4fxL8-_VFBwS0e4OHqLnxd5I0yy-ps/edit?usp=sharing)
 
-## AI Courses I took
+## What I have learnt
 - [Natural Language Processing](./nlp-course)
 - [Machine Learning](./ml-course)
 - [Information Retrieval](./ir-course)

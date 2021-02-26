@@ -2,7 +2,7 @@
 Author: Dat Quoc Ngo
 NET-ID: dqn170000
 Date: Feb. 19, 2021
-File: main.py - for executing homework 1
+File: main.py - execution in homework 1
 """
 
 # import dependencies
@@ -11,14 +11,57 @@ import re
 import argparse
 from collections import defaultdict
 
+def _alter_vc_seq(input):
+	"""
+	_alter_vc_seq - function to compute the measure m of a stem based on the alternate vowel-consonane sequences
+	Inputs:
+		- input : str
+			Words to be stemmed
+	Outputs:
+		- input : str
+			Stemmed words
+	"""
+
+	# initialize the measure m
+	m = 0
+	
+	# initialize vowel-consonant matching pattern
+	pattern = r'[aeiouy][qwrtpsdfghjklzxcvbnm]'
+		
+	return input
+
+def _suffix_rule(input):
+	"""
+	_suffix_rule - function to stem words by suffix rules
+	Inputs:
+		- input : str
+			Word to be stemmed
+	Outputs:
+		- input : str
+			Stemmed word
+	"""
+	return input
+
+def stem(tokens):
+	"""
+	stem - function to stem words to their roots
+	Inputs:
+		- tokens : list of tokens
+			To-be-stemmed tokens
+	Outputs:
+		- tokens : list of tokens
+			Stemmed tokens
+	"""
+
+	return tokens
+
 def tokenize(text):
 	"""
 	tokenize - function to perform tokenization
 	Inputs:
-		- 
-		-
+		- text : str 
 	Outputs:
-		- 
+		- text : list of tokens
 	"""
 	# substitue puncutations with whitespace
 	text = re.sub(pattern = '[.!?\\<>]*', repl = '', string = text)
@@ -31,7 +74,7 @@ def tokenize(text):
 
 	# split text into tokens by whitespace
 	text = text.split(' ')
-
+	
 	return text
 
 def process(text, pattern = '(<\/?[a-zA-Z]*>)|(\n)'):

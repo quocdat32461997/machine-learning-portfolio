@@ -11,9 +11,9 @@ import re
 import argparse
 from collections import defaultdict
 
-def _alter_vc_seq(input):
+def _comput_m(input):
 	"""
-	_alter_vc_seq - function to compute the measure m of a stem based on the alternate vowel-consonane sequences
+	_comput_m - function to compute the measure m of a stem based on the alternate vowel-consonane sequences
 	Inputs:
 		- input : str
 			Words to be stemmed
@@ -21,14 +21,13 @@ def _alter_vc_seq(input):
 		- input : str
 			Stemmed words
 	"""
-
-	# initialize the measure m
-	m = 0
-	
 	# initialize vowel-consonant matching pattern
 	pattern = r'[aeiouy][qwrtpsdfghjklzxcvbnm]'
 		
-	return input
+	# count frequency of vowel-consonant sequences
+	m = len(re.findall(pattern = pattern, string = input))
+	
+	return m
 
 def _suffix_rule(input):
 	"""
@@ -42,6 +41,303 @@ def _suffix_rule(input):
 	"""
 	return input
 
+def _remove_plural(input):
+	"""
+	_remove_plural - function to remove plural forms
+	Inputs:
+		- input : str
+	Outputs:
+		- input : str
+	"""
+	# ending w/ 'es'
+	if input.endswith('es'):
+		return input[:-2]
+	# ending w/ ss
+	elif input.endswith('s') and input[-1] != input[-2]:
+		return input[:-1]
+	return None
+
+def _remove_ing_n_ed(input, m):
+	"""
+	_remove_ing_n_ed - function to remove -ing and -ed forms
+	Inputs:
+		- input : str
+		- m : int
+			m measurement of vowel-consonant sequences
+	Outputs:
+		- input : str
+	"""
+
+	vowel_pattern = r'[aeiouy]'
+	cvc_pattern = r'[a-z]*[b-df-hj-np-tv-z][aeiouy][b-df-hj-np-tvz]'
+
+	# (m>0)eed -> ee
+	if m > 0 and input.endswith('eed'):
+		return input[:-1]
+	# (*v*)ed -> null 
+	elfif input.endswith('ed') and re.search(vowel_pattern, input[:-2]:
+		input = input[:-2]
+	# (*v*)ing -> null
+	elfif input.endswith('ing') and re.search(vowel_pattern, input[:-3]):
+		input = input[:-3]
+
+	# special cases
+	# if ends with at or bl or iz
+	if re.search(pattern = r'(at|bl|iz)', string = input[-2:]):
+		return input + 'e'
+	# end with consonant-vowel-consonant sequence
+	elif m == 1 and re.search(cvc_pattern, input): 
+		return input + 'e'
+	# special case of double consonant
+	elif input[-1] == input[-2]:
+		# if double-consonant is l, s, or z
+		return input if re.search(pattern = r'[lsz]', string = input[-1]) else input[:-1]
+
+	return None
+
+def _substitue_y(input):
+	"""
+	_substitue_y - function to replace y with i
+	Inputs:
+		- input : str
+	Outputs:
+		- input : str
+	"""
+	vowel_pattern = r'[aeiouy]'
+
+	# if ending w/ y and has a vowel in stem
+	if input.endswith('y') and re.search(vowel_pattern, input[:-1]):
+		return input[:-1] + 'i'
+
+	return input
+
+def _step1(input, m):
+	"""
+	_step1 - function to apply step1 rules
+	Inputs:
+		- input : str
+		- m : int
+			Measurement m of c.v.c. sequences
+	Outputs:
+		- input : str
+	"""
+
+	# remove plural forms
+	temp = _remove_plural(input)
+	if temp:
+		return temp
+
+	# remove -ed and -ing forms
+	temp = _remove_ing_n_ed(input)
+	if temp:
+		return temp
+	
+	# substitue y w/ i
+	temp = _substitue_y(input)
+	if temp:
+		return temp
+	return input
+
+def _step2(input, m):
+	"""
+	_step2 - function to apply step2 rules
+	Inputs:
+		- input : str
+		- m : int
+			Measurement m of c.v.c. sequences
+	Outputs:
+		- input : str
+	"""
+	if m > 0:
+		# ational -> ate
+		if input.endswith('ational'):
+			return input[:-1 * len('ational')] + 'ate'
+		# tional -> tion
+		elif input.endswith('tional'):
+			return inpupt[:-1*len('tional')] + 'tion'
+		# enci -> ence
+		elif input.endswith('enci'):
+			return input[:-1] + 'e'
+		# anci -> ance
+		elif input.endswith('anci'):
+			return input[:-1] + 'e'
+		# izer -> ize
+		elif input.endswith():
+			return input[:-1]
+		# abli -> able
+		elif input.endswith('abli'):
+			return input[:-1] + 'e'
+		# alli -> al
+		elif input.endswith('alli'):
+			return input[:-2]
+		# entli -> ent
+		elif input.endswith('entli'):
+			return input[:-2]
+		# eli -> e
+		elif input.endswith('eli'):
+			return input[:-2]
+		# ousli -> ous
+		elif input.endswith('ousli'):
+			return input[:-2] + 's'
+		# ization -> ize
+		elif input.endswith('ization'):
+			return input[:-5] + 'e'
+		# ation -> ate
+		elif input.endswith('ation'):
+			return input[:-3] + 'e'
+		# ator -> ate
+		elif input.endswith('ator'):
+			return input[:-2] + 'e'
+		# alism -> al
+		elif input.endswith('alism'):
+			return input[:-3]
+		# iveness -> ive
+		elif input.endswith('iveness'):
+			reutrn input[:-4]
+		# fulness -> ful
+		elif input.endswith('fulness'):
+			return input[:-4]
+		# ousness -> ous
+		elif input.endswith('ousness'):
+			return input[:-4]
+		# aliti -> ali
+		elif input.endswith('aliti'):
+			return input[:-3]
+		# iviti -> ive
+		elif input.endswith('iviti'):
+			return input[:-3] + 'e'
+		# biliti -> ble
+		elif input.endswith('biliti'):
+			return input[:-5] + 'le'
+	return input
+
+def _step3(input, m):
+	"""
+	_step3 - function to apply step2 rules
+	Inputs:
+		- input : str
+		- m : int
+			Measurement m of c.v.c. sequences
+	Outputs:
+		- input : str
+	"""
+	if m > 0:
+		# icate -> ic
+		if input.endswith('icative'):
+			return input[:-3]
+		# ative -> null
+		elif input.endswith('ative'):
+			return input[:-5]
+		# alize -> al
+		elif input.endswith('alize'):
+			return input[:-3]
+		# iciti -> ic
+		elif input.endswith('iciti'):
+			return input[:-3]
+		# ical -> ic
+		elif input.endswith('ical'):
+			return input[:-2]
+		# ful -> null
+		elif input.endswith('ful'):
+			return input[:-3]
+		# ness -> null
+		elif input.endswith('ness'):
+			return input[:-4]
+	return input
+
+def _step4(input, m):
+	"""
+	_step4 - function to apply step4 rules
+	Inputs:
+		- input : str
+		-  m : int
+			Measurement m of vowel-consonant sequences
+	Outputs:
+		- input : str
+	"""
+	if m > 0:
+		# al -> null
+		if input.endswith('al'):
+			return input[:-2]
+		# ance -> null
+		elif input.endswith('ance'):
+			return input[:-4]
+		# ence -> null
+		elif input.endswith('ence'):
+			return input[:-4]
+		# er -> null
+		elif input.endswith('er'):
+			return input[:-2]
+		# ic -> null
+		elif input.endswith('ic'):
+			return input[:-2]
+		# able -NUll
+		elif input.endswith('able'):
+			return input[:-4]
+		# ible -> null
+		elif input.endswith('ible'):
+			return input[:-4]
+		# ant -> null
+		elif input.endswith('ant'):
+			return input[:-3]
+		# ement -> null
+		elif input.endswith('ement'):
+			return input[:-5]
+		# ment -> null
+		elif input.endswith('ment'):
+			return input[:-4]
+		# ent -> null
+		elif input.endswith('ent'):
+			return input[:-3]
+		# sion/tion -> null
+		elif input.endswith('sion') or input.endswith('tion'):
+			return input[:-4]
+		# ou -> null
+		elif input.endswith('out'):
+			return input[:-2]
+		# ism -> null
+		elif input.endswith('ism'):
+			return input[:-3]
+		# ate -> null
+		elif input.endswith('ate'):
+			return input[:-3]
+		# iti -> null
+		elif input.endswith('iti'):
+			return input[:-3]
+		# ous -> null
+		elif input.endswith('ous'):
+			return input[:-3]
+		# ive -> null
+		elif input.endswith('ive'):
+			return input[:-3]
+		# ize -> null
+		elif input.endswith('ize'):
+			return input[:-3]
+	return input
+
+def _step5(input, m):
+	"""
+	_step5 - function to apply step rules
+	Inputs:
+		- input : str
+		- m : int
+			Measurement m of vowel-consonant sequences
+	Outputs:
+		- input
+	"""
+	cvc_pattern = r'[a-z]*[b-df-hj-np-tv-z][aeiouy][b-df-hj-np-tvz]'
+
+	# m > 1 and ending w/ 'e'
+	if m > and input.endswith('e'):
+		return input[:-1]
+	# m == 1 and not *o
+	elif m == 1 and not re.search(cvc_pattern, input):
+		return input[:-1]
+	# m > 1 and *d and *L -> single-letter
+	elif m > 1 and input[-1] == input[-2] and input[-1] == 'l':
+		return input[:-1]
+	return input
+
 def stem(tokens):
 	"""
 	stem - function to stem words to their roots
@@ -53,6 +349,24 @@ def stem(tokens):
 			Stemmed tokens
 	"""
 
+	for idx in range(len(tokens)):
+		# compute m measurement of vowel-consonant sequences
+		m = _compute_m(tokens[idx])
+
+		# step 1
+		tokens[idx] = _step1(tokens[idx], m)
+
+		# step 2
+		tokens[idx] = _step2(tokens[idx], m)
+
+		# step 3
+		tokens[idx] = _step3(tokens[idx], m)
+
+		# step 4
+		tokens[idx] = _step4(tokens[idx], m)
+
+		# step 5
+		tokens[idx] = _step5(tokens[idx], m)
 	return tokens
 
 def tokenize(text):

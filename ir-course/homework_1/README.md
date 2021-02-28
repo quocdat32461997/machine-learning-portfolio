@@ -1,5 +1,13 @@
 # Tokenization & Stemming
 
+# Run the program
+* Type
+```
+python3 main.py --path PATH_TO_CRANFIELD_DIRECOTRY
+```
+* The only argument is **--path** that accepts the path to the CRANFIELD directory/folder.
+
+
 ## Tokenization
 * The program ignores case sensitivity. Hence, "Apples" and "apples" are treated different.
 * The program removes punctuations, except hyphen "-" and single-quote "'". Hence, term "middle-class" remains as it is. Similarly, possessive terms "university's" remains as it is.

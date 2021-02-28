@@ -60,7 +60,6 @@ def _remove_ing_n_ed(input):
 	vowel_pattern = r'[aeiouy]'
 	cvc_pattern = r'[a-z]*[b-df-hj-np-tv-z][aeiouy][b-df-hj-np-tvz]'
 
-	print(input)
 	# (m>0)eed -> ee
 	if input.endswith('eed') and _compute_m(input[:-3]) > 0:
 		return input[:-1]
@@ -331,7 +330,6 @@ def stem(input):
 		- input : str
 			Stem
 	"""
-
 	# step 1
 	input = _step1(input)
 
@@ -394,8 +392,9 @@ def main(args):
 
 	# initialize dictionary to store term, its frequency, and positions
 	terms = defaultdict(int)
-	stems = defaultdict(int)
+	stem_dict = defaultdict(int)
 	num_word = []
+	num_stem = []
 
 	for file in files:
 		# read text
@@ -408,15 +407,19 @@ def main(args):
 		tokens = tokenize(text)
 
 		# store terms
+		stems = []
 		for token in tokens:
 			# store terms
 			terms[token] += 1
 
 			# stemming and store to stems
-			stems[stem(token)] += 1
+			ste = stem(token)
+			stems.append(ste)
+			stem_dict[ste] += 1
 
 		# add number of words in a doc
-		num_word.append(len(tokens))
+		num_word.append(len(set(tokens)))
+		num_stem.append(len(set(stems)))
 
 	# print tokenization results
 	print("Number of tokens in Cranfield text collections is {}.".format(sum([v for v in terms.values()])))
@@ -435,27 +438,27 @@ def main(args):
 			break # stop
 
 	print("The number of words that occur only once in the text ollection is {}".format(onces))
-	print("List of 30 most frequent words in the collection: {}".format([x[0] for x in terms[:30]]))
+	print("List of 30 most frequent words in the collection: {}".format([':'.join([x[0], str(x[-1])]) for x in terms[:30]]))
 	print("Average number of words in a document is {}".format(sum(num_word) / len(num_word)))
 
 	# print stemming results
-	print("Number of distinct stems in the Cranfield text collection is{}".format(len(stems)))
+	print("Number of distinct stems in the Cranfield text collection is {}".format(len(stem_dict)))
 
 	# sort stems by descending frequency
-	stems = sorted(stems.items(), key = lambda x: x[-1], reverse = True)
+	stem_dict = sorted(stem_dict.items(), key = lambda x: x[-1], reverse = True)
 
 	# print stems occurcing only once
 	onces = 0
-	while stems:
-		if stems[-1][-1] == 1: # occuring only once
-			stems.pop()
+	while stem_dict:
+		if stem_dict[-1][-1] == 1: # occuring only once
+			stem_dict.pop()
 			onces += 1
 		else:
 			break # stop
 
 	print("The number of words that occur only once in the text collection is {}".format(onces))
-	print("List of 30 most frequent words in the collection: {}".format([x[0] for x in stems[:30]]))
-	print("Average number of word-stem per document: {}".format())
+	print("List of 30 most frequent words in the collection: {}".format([':'.join([x[0], str(x[-1])]) for x in stem_dict[:30]]))
+	print("Average number of word-stems per document: {}".format(sum(num_stem) / len(num_stem)))
 
 	return None
 

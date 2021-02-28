@@ -117,7 +117,7 @@ Learning](https://arxiv.org/pdf/2003.10471.pdf)
 - [Blogs on Deep Learning](https://datngo-79115.medium.com/)
 - [explore ml @DSC-UTD](https://github.com/DSC-UTDallas/explore-ml) - workshops over fundamental machine learning algorithms
 - [Introduction to Python](https://github.com/pekkalacd/Introduction-to-Python)
-
+- [Machine Learning System Design](https://docs.google.com/document/d/1yOJagVolemWpgms_TkBlEi866qLi7p76m4aMjkPcU6Q/edit?usp=sharing)
 
 ## My machine-learning-engineer interview prep
 - [ML Engineer Notes](https://docs.google.com/document/d/1mo1edEotJDpvT4fxL8-_VFBwS0e4OHqLnxd5I0yy-ps/edit?usp=sharing)

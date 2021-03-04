@@ -3,7 +3,7 @@ This consists:
 * [My timeline-based AI/ML/DL projects that I have worked on](#Projects)
 * [My publications](#Publications)
 * [Research papers that I have read and found interesting/practical](#Papers-that-I-have-read-and-found-useful)
-* [My blogs/presentations/contributions](#Blogs-presentations-contributions)
+* [My blogs/presentations/contributions](#Blogs-&-workshops)
 * [Interview prep](#My-machine-learning-engineer-interview-prep)
 * [What I have learnt](#What-I-have-learnt)
 ---
@@ -112,13 +112,15 @@ Learning](https://arxiv.org/pdf/2003.10471.pdf)
     - Proposed to exploit graphical context to improve CNN's performance in classification tasks.
 ---
 
-## Blogs-presentations-contributions
+## Blogs & Workshops
 - [Install Tensorflow on AMD GPUs](https://medium.com/analytics-vidhya/install-tensorflow-2-for-amd-gpus-87e8d7aeb812)
 - [Blogs on Deep Learning](https://datngo-79115.medium.com/)
 - [explore ml @DSC-UTD](https://github.com/DSC-UTDallas/explore-ml) - workshops over fundamental machine learning algorithms
 - [Introduction to Python](https://github.com/pekkalacd/Introduction-to-Python)
+- [Workshop on Multimodal Emotion Recognition @AIS](https://www.youtube.com/watch?v=4XAO4IOH5ks&t=52s)
+- [Deploy ML models using GCP]()
 
-## My machine-learning-engineer interview prep
+## Machine-learning-engineer interview prep
 - [ML Engineer Notes](https://docs.google.com/document/d/1mo1edEotJDpvT4fxL8-_VFBwS0e4OHqLnxd5I0yy-ps/edit?usp=sharing)
 
 ## What I have learnt

@@ -238,7 +238,7 @@ def main(args):
 	bigram_prob = test(args.test, args.type, unigram_count, bigram_count, bigram_prob, bigram_freq, total_word, total_vocab, total_bigram)
 
 	# display result
-	print("Bigram probability of \"{}\" is {}".format(args.test, bigram_prob))
+	print("Bigram probability with {} of \"{}\" is {}".format(args.type, args.test, bigram_prob))
 	return None
 
 if __name__ == '__main__':

@@ -134,9 +134,9 @@ def build_bigram(input):
 
 	return unigram_count, bigram_count, bigram_prob, bigram_freq, total_word, total_vocab, total_bigram
 
-def test(input, type, unigram_count, bigram_count, bigram_prob, bigram_freq, total_word, total_vocab, total_bigram):
+def predict(input, type, unigram_count, bigram_count, bigram_prob, bigram_freq, total_word, total_vocab, total_bigram):
 	"""
-	test - function to compute bigram probability of the input sentence
+	predict - function to compute bigram probability of the input sentence
 	Inputs:
 		input : str
 			Sentence
@@ -243,7 +243,7 @@ def test(input, type, unigram_count, bigram_count, bigram_prob, bigram_freq, tot
 
 def main(args):
 	# read data corpus
-	with open(args.input) as file:
+	with open('NLP6320_POSTaggedTrainingSet-Unix.txt') as file:
 		data = file.read()
 
 	# process text
@@ -254,7 +254,8 @@ def main(args):
 	print("Total word {}, total vocabulary {}, total bigram {}".format(total_word, total_vocab, total_bigram))
 
 	# test
-	bigram_prob = test(args.test, args.type, unigram_count, bigram_count, bigram_prob, bigram_freq, total_word, total_vocab, total_bigram)
+	test = 'test test'
+	bigram_prob = predict(test, args.type, unigram_count, bigram_count, bigram_prob, bigram_freq, total_word, total_vocab, total_bigram)
 
 	# save unigram and bigram
 	with open('unigram.json', 'w') as file:
@@ -270,8 +271,6 @@ if __name__ == '__main__':
 
 	# add arugment
 	parser.add_argument('--type', type = str, default = 'no-smoothing', help = 'Smoothing type: no-smoothing, add-one-smoothing, and good-turing')
-	parser.add_argument('--input', type = str, default = 'NLP6320_POSTaggedTrainingSet-Unix.txt', help = 'Path to input data')
-	parser.add_argument('--test', type = str, default = 'test test', help = 'Text for computing probability')
 
 	# execute
 	main(parser.parse_args())

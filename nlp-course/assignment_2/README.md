@@ -1,6 +1,8 @@
 # README
 The program is done to demonstrate how to compute the bigram probability with various smoothing methods: none, add-one-smoothing, and good-turing
 
+Unigram and bigram models could be viewed at **unigram.json** and **bigram.json** after executing the **bigram.py** file.
+
 ## Running the program
 Type
 ```

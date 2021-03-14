@@ -7,7 +7,9 @@ NET-ID: dqn170000
 # import dependencies
 import os
 import re
+import json
 import argparse
+from functools import reduce
 import numpy as np
 from collections import defaultdict
 
@@ -21,14 +23,18 @@ def _find_word(input):
 		- outputs : list
 			List of words
 	"""
+	# lower case
+	input = input.lower()
+
 	# split by whitespace
-	input = re.split(pattern = '\s+', string = input)
+	input = re.split(pattern = '[\s]+', string = input)
+
 	# find words in WORD_POS pattern
-	valid_word = lambda x: True if re.findall(pattern = r'[a-zA-Z]+_[a-zA-Z]+', string = x) else False
+	valid_word = lambda x: True if re.findall(pattern = r'[a-z]*_[a-z]*', string = x) else False
 	outputs = []
 	for token in input:
 		if valid_word(token):
-			outputs.append(token.split('_')[0].lower()) # lowercase token
+			outputs.append(token.split('_')[0])
 	return outputs
 
 def process(input):
@@ -43,7 +49,7 @@ def process(input):
 	"""
 
 	# split by newline
-	input = re.split(pattern = r'\n+', string = input)
+	input = re.split(pattern = r'\n', string = input)
 
 	# split into tokens by whitespace
 	input = [_find_word(sent) for sent in input]
@@ -65,6 +71,7 @@ def compute_unigram(input, unigram_count, total_word):
 			unigram probability
 	"""
 	return unigram_count[input] / total_word
+
 def compute_bigram(input, unigram_count, bigram_count):
 	"""
 	compute_bigram - function to compute bigram probability
@@ -109,9 +116,9 @@ def build_bigram(input):
 
 	# iterate thru tokens
 	for sent in input:
-		total_word += len(sent)
-		total_bigram += len(sent) // 2
 		if sent:
+			total_word += len(sent)
+			total_bigram += len(sent)-1 if len(sent) > 1 else 0
 			unigram_count[sent[0]] += 1
 			for idx in range(1, len(sent)):
 				unigram_count[sent[idx]] += 1
@@ -169,9 +176,7 @@ def test(input, type, unigram_count, bigram_count, bigram_prob, bigram_freq, tot
 		"""
 		
 		# prob of token_0 a.k.a first token
-		#print(input, unigram_count[input[0]])
-		output = unigram_count[input[0]] / total_word
-		#print(output)
+		outputs = [unigram_count[input[0]] / total_word]
 
 		if type == 'no-smoothing': # no-smoothing
 			# compute the remaining bigram probs
@@ -180,10 +185,11 @@ def test(input, type, unigram_count, bigram_count, bigram_prob, bigram_freq, tot
 				bigram = tuple(input[idx - 1:idx + 1])
 
 				# compute prob
-				output *= bigram_count[bigram] / unigram_count[input[idx - 1]]
+				outputs.append(bigram_count[bigram] / unigram_count[input[idx - 1]])
 
 				# zero break
-				if output == 0:
+				if outputs[-1] == 0:
+					print(input[idx], 'not in corpus')
 					break
 		elif type == 'add-one-smoothing': # add-one-smoothing
 			# compute the remaining bigram probs
@@ -192,7 +198,11 @@ def test(input, type, unigram_count, bigram_count, bigram_prob, bigram_freq, tot
 				bigram = tuple(input[idx - 1:idx + 1])
 
 				# compute prob
-				output *= (bigram_count[bigram] + 1) / (unigram_count[input[idx - 1]] + total_vocab)
+				outputs.append((bigram_count[bigram] + 1) / (unigram_count[input[idx - 1]] + total_vocab))
+
+				if outputs[-1] == 0:
+					print(input[idx], 'not in corpus')
+					break
 
 		else: # good-turing
 			# compute the remaining bigram probs
@@ -202,15 +212,20 @@ def test(input, type, unigram_count, bigram_count, bigram_prob, bigram_freq, tot
 
 				# compute prob
 				if count == 0: # bigram not existing in training corpus
-					output *= bigram_freq[count + 1] / total_bigram
+					n_count_1 = bigram_freq[count + 1]
+					outputs.append(0 if n_count_1 == 0 else n_count_1 / total_bigram) # if N(count+1) == 0, then probability is 0
+
 				else: # defaultdict already handles N_c+1 = -> count* = 0
-					output *= (count + 1) * bigram_freq[count + 1] / (bigram_freq[count] * total_bigram)
+					outputs.append((count + 1) * bigram_freq[count + 1] / (bigram_freq[count] * total_bigram))
 
 				# zero break
-				if output == 0:
+				if outputs[-1] == 0:
+					print('Either bucket {} = or {} not in corpus'.format(count + 1, input[idx]))
 					break
 
-		return output
+		return outputs
+
+	print('Computing probability of {}'.format(input))
 
 	# process text
 	assert len(input) > 0, 'Length of test input msut be greater than 0'
@@ -218,9 +233,13 @@ def test(input, type, unigram_count, bigram_count, bigram_prob, bigram_freq, tot
 
 	# compute test probability by bigram model
 	assert type in ['no-smoothing', 'add-one-smoothing', 'good-turing'], 'smoothing selection shouuld be no-smoothing, add-one-smoothing, and good-turing'
-	output = _compute_bigram_prob(input)
+	outputs = _compute_bigram_prob(input)
 
-	return output
+	# compute the final output
+	output = reduce(lambda x, y: x*y, outputs)
+	print('{}: {} = {}'.format(type, ' * '.join([str(x) for x in outputs]), output))
+
+	return None
 
 def main(args):
 	# read data corpus
@@ -232,13 +251,17 @@ def main(args):
 
 	# compute unigram & bigram model
 	unigram_count, bigram_count, bigram_prob, bigram_freq, total_word, total_vocab, total_bigram = build_bigram(data)
-	#print(total_word, total_vocab)
+	print("Total word {}, total vocabulary {}, total bigram {}".format(total_word, total_vocab, total_bigram))
 
 	# test
 	bigram_prob = test(args.test, args.type, unigram_count, bigram_count, bigram_prob, bigram_freq, total_word, total_vocab, total_bigram)
 
-	# display result
-	print("Bigram probability with {} of \"{}\" is {}".format(args.type, args.test, bigram_prob))
+	# save unigram and bigram
+	with open('unigram.json', 'w') as file:
+		json.dump(unigram_count, file)
+	with open('bigram.json', 'w') as file:
+		bigram_count = {str(bigram) : count for bigram, count in bigram_count.items()}
+		json.dump(bigram_count, file)
 	return None
 
 if __name__ == '__main__':
@@ -248,7 +271,7 @@ if __name__ == '__main__':
 	# add arugment
 	parser.add_argument('--type', type = str, default = 'no-smoothing', help = 'Smoothing type: no-smoothing, add-one-smoothing, and good-turing')
 	parser.add_argument('--input', type = str, default = 'NLP6320_POSTaggedTrainingSet-Unix.txt', help = 'Path to input data')
-	parser.add_argument('--test', type = str, default = 'in basement  wow it is amazing', help = 'Text for computing probability')
+	parser.add_argument('--test', type = str, default = 'test test', help = 'Text for computing probability')
 
 	# execute
 	main(parser.parse_args())

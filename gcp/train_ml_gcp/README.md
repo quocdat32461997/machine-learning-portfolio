@@ -3,6 +3,7 @@ This dir guides you to **create ML models, package models as apps, submit, and l
 
 ## Package structure
 ![](https://cloud.google.com/ai-platform/images/recommended-project-structure.png)
+
 Look at the above strucutre, remember that
 Your ML package should have:
 - **setup.py** - script to package your app either automatically by *gcloud* command or manually.

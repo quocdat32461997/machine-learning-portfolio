@@ -115,7 +115,7 @@ Learning](https://arxiv.org/pdf/2003.10471.pdf)
 - [explore ml @DSC-UTD](https://github.com/DSC-UTDallas/explore-ml) - workshops over fundamental machine learning algorithms
 - [Introduction to Python](https://github.com/pekkalacd/Introduction-to-Python)
 - [Workshop on Multimodal Emotion Recognition @AIS](https://www.youtube.com/watch?v=4XAO4IOH5ks&t=52s)
-- [Deploy ML models using GCP]()
+- [Machine Learning with Google Cloud Platform (GCP)](./gcp)
 
 ## Machine-learning-engineer interview prep
 - [ML Engineer Notes](https://docs.google.com/document/d/1mo1edEotJDpvT4fxL8-_VFBwS0e4OHqLnxd5I0yy-ps/edit?usp=sharing)

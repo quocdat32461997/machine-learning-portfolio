@@ -7,9 +7,7 @@ File: setup.py
 from setuptools import find_packages
 from setuptools import setup
 
-# read required packages
-with open('requirements.txt') as file:
-	REQUIRED_PACKAGES = file.read().split('\n')
+REQUIRED_PACKAGES = ['tensorflow==2.2']
 
 setup(
 	name = 'trainer',

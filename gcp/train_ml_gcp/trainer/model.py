@@ -29,6 +29,7 @@ def input_fn(features, labels, shuffle, num_epochs, batch_size):
 
 	# map transformations
 	dataset = dataset.shuffle(buffer_size = len(features)) if shuffle else dataset # shuffle
+	dataset = dataset.repeat(num_epochs)
 	dataset = dataset.batch(batch_size)
 
 	return dataset

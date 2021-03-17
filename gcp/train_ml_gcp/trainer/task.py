@@ -7,6 +7,7 @@ File: task.py
 import os
 import argparse
 import tensorflow as tf
+from datetime import datetime
 
 from . import model
 from . import util
@@ -95,7 +96,7 @@ def train_and_evaluate(args):
 		callbacks = [lr_scheduler, tensorboard])
 
 	# export model
-	export_path = os.path.join(args.job_dir, 'trained_model')
+	export_path = os.path.join(args.job_dir, str(floor(datetime.utcnow().timestamp())))# utc-timestamp as model version
 	tf.keras.models.save_model(network, export_path)
 
 	return None

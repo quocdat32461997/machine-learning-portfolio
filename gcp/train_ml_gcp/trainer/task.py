@@ -4,6 +4,7 @@ File: task.py
 """
 
 #import dependencies
+import os
 import argparse
 import tensorflow as tf
 
@@ -22,7 +23,7 @@ def get_args():
 
 	# add arguments
 	parser.add_argument(
-		'--job-dir', type = str, required = True,
+		'--job-dir', type = str,
 		help = 'local or Google Cloud Storage location for writing checkpoints and exporting models',
 		default = 'checkpoints')
 	parser.add_argument('--num-epochs',
@@ -37,7 +38,7 @@ def get_args():
 	parser.add_argument('--verbosity',
 		choices = ['DEBUG', 'ERROR', 'FATAL', 'INFO', 'WARN'],
 		default = 'INFO')
-	paraser.add_argument('--predict-num',
+	parser.add_argument('--predict-num',
 		type = int, default = 1, help = 'Number of predictions. If 1, online prediction. If > 1, batch prediction')
 
 	return parser.parse_args()
@@ -53,10 +54,11 @@ def train_and_evaluate(args):
 	# load data
 	train_x, train_y, eval_x, eval_y = util.load_data()
 
-	num_train_examples, _ = train_x.shape # retrieve number of training samples
+	num_train_examples, input_dim = train_x.shape # retrieve number of training samples
 
 	# create model
-	model = model.create_model()
+	network = model.create_model(input_dim = input_dim,
+		learning_rate = args.learning_rate)
 
 	# create training dataset
 	training_dataset = model.input_fn(
@@ -75,7 +77,7 @@ def train_and_evaluate(args):
 		batch_size = args.predict_num)
 
 	# setup hyperparameters
-	lr_schduler = tf.keras.callbacks.LearningRateScheduler(
+	lr_scheduler = tf.keras.callbacks.LearningRateScheduler(
 		lambda epoch: args.learning_rate + 0.02 * (0.5 **(1 + epoch)),
 		verbose = True)
 	tensorboard = tf.keras.callbacks.TensorBoard(
@@ -83,9 +85,9 @@ def train_and_evaluate(args):
 		histogram_freq = 1)
 
 	# train model
-	model.fit(
+	network.fit(
 		training_dataset,
-		steps_per_epoch = int(num_train_examples / args.batch_size) #mini-batch-size
+		steps_per_epoch = int(num_train_examples / args.batch_size), #mini-batch-size
 		epochs = args.num_epochs,
 		validation_data = validation_dataset,
 		validation_steps = 1, # validation_step = 1 in prediction if training is mini-batching
@@ -93,8 +95,8 @@ def train_and_evaluate(args):
 		callbacks = [lr_scheduler, tensorboard])
 
 	# export model
-	export_path = os.path.join(args.jon_dir, 'trained_model')
-	tf.keras.models.save_model(model, export_path)
+	export_path = os.path.join(args.job_dir, 'trained_model')
+	tf.keras.models.save_model(network, export_path)
 
 	return None
 

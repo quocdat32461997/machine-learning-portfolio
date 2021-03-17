@@ -19,7 +19,7 @@ def input_fn(features, labels, shuffle, num_epochs, batch_size):
 		dataset : TF dataset instance
 	"""
 
-	if not labels:
+	if labels is None:
 		inputs = features # evaluation
 	else:
 		inputs = (features, labels)
@@ -33,7 +33,7 @@ def input_fn(features, labels, shuffle, num_epochs, batch_size):
 
 	return dataset
 
-def create_model(input_dim, learning_rate)
+def create_model(input_dim, learning_rate):
 	"""
 	create_model - function to create model
 	Inputs:
@@ -54,7 +54,7 @@ def create_model(input_dim, learning_rate)
 		dense(1, activation = tf.keras.activations.sigmoid)])
 
 	# initialize optimizer
-	optimizer = tf.keras.optimizer.Adam(lr = learning_rate)
+	optimizer = tf.keras.optimizers.Adam(lr = learning_rate)
 
 	# compile model
 	model.compile(loss = 'binary_crossentropy',

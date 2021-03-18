@@ -24,6 +24,10 @@ def get_args():
 
 	# add arguments
 	parser.add_argument(
+		'--model-name', type = str,
+		help = 'Name of your model',
+		default = 'cnn')
+	parser.add_argument(
 		'--job-dir', type = str,
 		help = 'local or Google Cloud Storage location for writing checkpoints and exporting models',
 		default = 'checkpoints')
@@ -96,7 +100,7 @@ def train_and_evaluate(args):
 		callbacks = [lr_scheduler, tensorboard])
 
 	# export model
-	export_path = os.path.join(args.job_dir, str(floor(datetime.utcnow().timestamp())))# utc-timestamp as model version
+	export_path = os.path.join(args.job_dir, args.model_name, str(floor(datetime.utcnow().timestamp())))# utc-timestamp as model version
 	tf.keras.models.save_model(network, export_path)
 
 	return None

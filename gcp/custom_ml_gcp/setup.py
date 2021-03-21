@@ -1,4 +1,5 @@
-uthor: Firstname Lastname
+"""
+Author: Firstname Lastname
 File: setup.py
 """
 

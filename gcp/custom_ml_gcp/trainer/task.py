@@ -49,8 +49,7 @@ def train_and_evaluate(args):
     data_dir = util.load_data()
 
     # create train and validation datasets
-    train_dataset, val_dataset = model.input_fn(data_dir, height = height, width = width, batch_size = args.batch_size)
-
+    train_dataset = model.input_fn(data_dir, height = height, width = width, batch_size = args.batch_size)
     for x in train_dataset.take(1):
         print(x[0].shape, x[1])
 
@@ -66,7 +65,7 @@ def train_and_evaluate(args):
     network.compile(loss = loss, optimizer = optimizer, metrics = ['accuracy'])
 
     # train model
-    network.fit(train_dataset, validation_data = val_dataset, epochs = args.num_epochs, batch_size = args.batch_size, verbose = 1, callbacks = callbacks)
+    network.fit(train_dataset, epochs = args.num_epochs, batch_size = args.batch_size, verbose = 1, callbacks = callbacks)
     # export model
     export_path = os.path.join(args.job_dir, args.model_name, str(np.floor(datetime.utcnow().timestamp())))
     tf.keras.models.save_model(network, export_path)

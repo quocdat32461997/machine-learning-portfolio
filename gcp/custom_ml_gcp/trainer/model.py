@@ -1,7 +1,8 @@
 # import dependencies
 import tensorflow as tf
+from tensorflow.keras.layers import Flatten, Dense
 
-def input_fn(path, height, widht, batch_size, seed = 2021):
+def input_fn(path, height, width, batch_size, seed = 2021):
 	"""
 	Load data, map transformations, and convert to tf.data API
 	Args:
@@ -39,3 +40,27 @@ def input_fn(path, height, widht, batch_size, seed = 2021):
 	val_datast = val_dataset.map(lambda x, y: (normalization_layer(x), y))
 
 	return train_dataset, val_dataset
+
+def create_model(num_class, shape):
+    """
+    Initialize VGG16
+    Args:
+        num_class : number of classes
+        shape : tuple of int
+            (h, w, c)
+    """
+    inputs = tf.keras.Input(shape = shape)
+
+    # retrieve pretrained VGG16
+    vgg16 = tf.keras.applications.VGG16(
+            include_top = False, weights = 'imagenet', input_shape = shape)
+
+
+    # feed-forward
+    outputs = vgg16(inputs)
+    outputs = Flatten()(outputs)
+    outputs = Dense(4096, activation = 'relu', activity_regularizer = 'l2')(outputs)
+    outputs = Dense(4096, activation = 'relu', activity_regularizer = 'l2')(outputs)
+    outputs = Dense(num_class, activation = 'softmax')(outputs)
+
+    return tf.keras.Model(inputs = inputs, outputs = outputs)

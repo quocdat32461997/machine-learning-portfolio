@@ -1,6 +1,7 @@
 # import dependencies
 import os
 import argparse
+import numpy as np
 import tensorflow as tf
 from datetime import datetime
 
@@ -18,11 +19,9 @@ def get_args():
         parser = argparse.ArgumentParser()
 
         # add arguments
-	parser.add_argument(
-		'--model-name', type = str,
+        parser.add_argument('--model-name', type = str,
 		help = 'Name of your mode', default = 'cnn')
-        parser.add_argument(
-                '--job-dir', type = str,
+        parser.add_argument('--job-dir', type = str,
                 help = 'local or Google Cloud Storage location for writing checkpoints and exporting models',
                 default = 'checkpoints')
         parser.add_argument('--num-epochs',
@@ -43,23 +42,32 @@ def get_args():
         return parser.parse_args()
 
 def train_and_evaluate(args):
-	
-	# load data
-	data_dir = util.load_data()
-	train_dataset, val_dataset = model.input_fn(data_dir, height = 180, width = 180, batch_size = args.batch_size)
+        # load data
+        data_dir = util.load_data()
+
+        # create train and validation datasets
+        train_dataset, val_dataset = model.input_fn(data_dir, height = 180, width = 180, batch_size = args.batch_size)
+
+        for x in train_dataset.take(1):
+            print(x[0].shape, x[1].shape)
 
 	# create model
-	network = model.create_model()
-
-	# create training dataset
-
-	# create validation dataset
+        network = model.create_model(num_class = 5, shape = (224, 224, 3))
+        print(network.summary())
 
 	# setup hyperparameters
+        loss = tf.keras.losses.CategoricalCrossentropy()
+        optimizer = tf.keras.optimizers.Adam(learning_rate = args.learning_rate)
+        callbacks = []
+
+        network.compile(loss = loss, optimizer = optimizer, metrics = [
+            tf.keras.metrics.AUC(multi_label = False, thresholds = [0.5]),
+            tf.keras.metrics.Precision(),
+            tf.keras.metrics.Recall()])
 
 	# train model
-
+        #network.fit(train_dataset, validation_data = val_dataset, epochs = args.num_epochs, batch_size = args.batch_size, verbose = 1, callbacks = callbacks)
 	# export model
-	export_path = os.path.join(args.job_dir, args.model_name, str(floor(datetime.utcnow().timestamp())))
-	tf.keras.models.save_model(network, export_path)
-	return None
+        #export_path = os.path.join(args.job_dir, args.model_name, str(np.floor(datetime.utcnow().timestamp())))
+        #tf.keras.models.save_model(network, export_path)
+        return None

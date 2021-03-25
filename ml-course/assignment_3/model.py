@@ -155,6 +155,36 @@ class NaiveBayes(object):
         # classify
         return output
 
+    def evaluate(self, path):
+        """
+        Evaluate Naive Bayes
+        Args:
+            path : path to test data
+        Returns:
+            acc : accuracy
+        """
+
+        # read test data
+        input = {}
+        for cls in self.classes:
+            class_path = os.path.join(path, cls)
+            input[cls] = [open(os.path.join(class_path, file), encoding = 'utf-8', errors = 'ignore').read()
+                for file in os.listdir(class_path)]
+
+        # make predictions
+        output = {}
+        for cls in self.classes:
+            output[cls] = [self.predict(text) for text in input[cls]]
+
+        # compute accuracy
+        acc = []
+        for cls, preds in output.items():
+            acc.extend([cls == pred for pred in preds])
+
+        acc = sum(acc) / len(acc)
+
+        return acc
+
 class LogisticRegressor(object):
     """
     Implementation of Logistic Regression

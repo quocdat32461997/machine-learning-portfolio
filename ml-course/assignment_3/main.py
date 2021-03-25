@@ -2,8 +2,7 @@
 import os
 import argparse
 
-from model import naive_bayes, logistic_regressor
-from input import Input
+from model import NaiveBayes, LogisticRegressor
 
 def get_args():
     """
@@ -22,7 +21,7 @@ def get_args():
     parser.add_argument('--val-data', type = str, help = 'Path to validationo data', default = './tset')
 
     # parse arguments
-    args = parser.parse_known_args()
+    args = parser.parse_args()
 
     return args
     
@@ -31,13 +30,11 @@ def main(args):
     Execute text classification
     """
 
-    # load data
-    train_data = Input(path = './train')
-    print(train_data._ham_vocabs, train_data._spam_vocabs)
-
-    # preprocess data
-
     # train models: naive_bayes and logisitic_regressor
+    naive_bayes = NaiveBayes(args.train_data)
+    naive_bayes.train()
+    print(naive_bayes.class_priors)
+    print(naive_bayes.predict('hello I am dat'))
 
     # evaluate
 

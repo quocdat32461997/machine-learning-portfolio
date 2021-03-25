@@ -23,9 +23,13 @@ class Input:
         self.path = path
         self._ham_vocabs = defaultdict(int)
         self._spam_vocabs = defaultdict(int)
+        self.class_doc = {}
 
         # build vocabs
         self._input_fn()
+
+        # total docs
+        self.num_docs = sum([len(docs) for docs in self.class_doc.values()])
 
     def _parse(self, text, cls):
         """
@@ -62,7 +66,9 @@ class Input:
         # spam
         for cls in ['spam', 'ham']:
             class_path = os.path.join(self.path, cls)
-            for file in os.listdir(class_path):
+            files = os.listdir(class_path)
+            self.class_doc[cls] = len(files)
+            for file in files:
                 # read text
                 with open(os.path.join(class_path, file), encoding = 'utf-8', errors = 'ignore') as f:
                     text = f.read()

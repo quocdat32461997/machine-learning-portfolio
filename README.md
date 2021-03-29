@@ -38,7 +38,7 @@ This consists:
 
 ### - 2021
 - [Emorecom, ICDAR2021 Competition – Multimodal Emotion Recognition on Comic scenes](https://github.com/aisutd/emorecom)
-    - Developed a multimodal Deep Learning model composed of CNN (ResNet, FaceNet) for visual features and RNN/BERT for textual features to detect emotion on comic scenes. Current AOU-RUC at 80%.
+    - Developed a multimodal Deep Learning model composed of CNN (ResNet, FaceNet) for visual features and RNN/BERT for textual features to detect emotion on comic scenes. Ranked 13th.
     - Utilized Tensorflow Data/string/image and OpenCV to build image/text augmentation pipeline and the TFRecord data pipeline.
 
 ---

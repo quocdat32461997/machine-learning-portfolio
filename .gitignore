@@ -1,4 +1,5 @@
 **/.DS_Store
+**/*.zip
 **/slides
 **/*.swp
 **/__pycache__

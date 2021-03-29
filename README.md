@@ -1,6 +1,6 @@
 # machine-learning-portfolio
 This consists:
-* [My timeline-based AI/ML/DL projects that I have worked on](#Projects)
+* [My timeline-based AI/ML/DL projects](#Projects)
 * [My publications](#Publications)
 * [Research papers that I have read and found interesting/practical](#Papers-that-I-have-read-and-found-useful)
 * [My blogs/presentations/contributions](#Blogs-&-workshops)

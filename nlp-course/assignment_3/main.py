@@ -197,7 +197,7 @@ def predict(input, unigram_tag, bigram_tag, word_tag, bigram_tag_prob, word_tag_
             idx = np.argmax(probs)
             return best_probs[idx], best_seq[idx]
 
-    print('POS for the folowing text {}'.format(input))
+    print('POS for the folowing text "{}"'.format(input))
 
     # process text
     assert len(input) > 0, 'Length of test input msut be greater than 0'
@@ -209,15 +209,16 @@ def predict(input, unigram_tag, bigram_tag, word_tag, bigram_tag_prob, word_tag_
     output = reduce(lambda x, y: x*y, probs)
     if output == 0:
         print("Suggested post-tags (excluding out-of-vocab) are {}".format(" ".join(tags)))
-        print("The final probabillity for the POS-Tag sequene is {}. Hence, the post-tags for the input text could not be determined".format(output))
+        print("The final probabillity for the POS-Tag sequene is {}. Hence, the post-tags for the input text could not be determined\n".format(output))
     else:
         print("The final probability for the POS-Tag sequene is {}".format(output))
         for word, tag in zip(input, tags[1:-1]):
             print("Word {} - Tag {}".format(word, tag))
+        print()
 
     return None
 
-def main(args):
+def part_1(args):
     # read data corpus
     with open('NLP6320_POSTaggedTrainingSet-Unix.txt') as file:
         data = file.read()
@@ -229,8 +230,131 @@ def main(args):
     bigram_tag, unigram_tag, word_tag, bigram_tag_prob, word_tag_prob = build_bigram(data)
 
     # test
-    test = 'Brainpower has the power .'
-    bigram_prob = predict(test, unigram_tag, bigram_tag, word_tag, bigram_tag_prob, word_tag_prob)
+    tests = ['Brainpower has the power .',
+            'Janet will back the bill .',
+            'I lost power yesterday .']
+    for test in tests:
+        bigram_prob = predict(test, unigram_tag, bigram_tag, word_tag, bigram_tag_prob, word_tag_prob)
+
+    return None
+
+def viberti(input, trans_matrix, observ_matrix, trans_rows, trans_cols, observ_rows, observ_cols):
+    """
+    viberti - applied Viberti algo to perform POS Tagging
+    Args:
+        input - list of str
+        trans_matrix - np.array
+        observ_matrix - np.array
+        trans_rows : dict
+        trans_cols : dict
+        observ_rows : dict
+        observ_cols : dict
+    Returns:
+        tags : list of tags
+        probs : list of probs in regrads with tags
+    """
+    def _prob(word, prev_word_idx, tag, prev_tag):
+        """
+        Compute the probability = max(trans, observ)
+        Args:
+            word : current word
+            prev_word_idx : previous word idx
+            tag : current tag
+            prev_tag : previous tag
+        Returns:
+            output : float
+        """
+
+        a = matrix[observ_rows[prev_tag], prev_word_idx] # observ_cols[prev_word]]
+        b = trans_matrix[trans_rows[prev_tag], trans_cols[tag]]
+        c = observ_matrix[observ_rows[tag], observ_cols[word]]
+        return a * b * c
+
+    # initiailze dynamic matrix
+    matrix = np.zeros((len(observ_rows),len(input)))
+    tag_matrix = np.zeros((len(observ_rows), len(input)), dtype = np.int32)
+
+    # fill the first column
+    for tag, t_idx in observ_rows.items():
+        word = input[0]
+        matrix[t_idx, 0] = trans_matrix[trans_rows['<s>'], trans_cols[tag]] * observ_matrix[t_idx, observ_cols[word]]
+
+    # fill matrix
+    for word, w_idx in zip(input[1:], range(1, len(input))):
+        prev_word = input[w_idx - 1]
+        for tag, t_idx in observ_rows.items():
+
+            # compute prob in regards with previous state
+            probs = [_prob(word, w_idx - 1, tag, prev_tag) for prev_tag in observ_rows.keys()]
+
+            # fill slot
+            idx = np.argmax(probs) # get the best previous-tag index
+            matrix[t_idx, w_idx] = probs[idx]
+
+            # fill tag matrix
+            tag_matrix[t_idx, w_idx] = idx
+
+
+    # trace back to retrieve best tags
+    idx = np.argmax(matrix[:, -1]) # last tag
+    probs = []
+    tags = []
+    for i in range(len(input) - 1, 0, -1):
+        tags.append(list(observ_rows.keys())[idx]) # add tag
+        probs.append(matrix[idx, i])
+        idx = tag_matrix[idx, i] # next tag
+    tags.append(list(observ_rows.keys())[idx]) # firs tag
+    probs.append(matrix[idx, 0])
+    tags = tags[::-1] # reverse tags
+    probs = probs[::-1] # reverse probs following tags
+
+    return tags, probs
+def part_2():
+    trans_matrix = np.array([
+        [0.2767, 0.0006, 0.0031, 0.0453, 0.0449, 0.0510 ,0.2026],
+        [0.3777, 0.110, 0.0009, 0.0084, 0.0584, 0.0090, 0.0025],
+        [0.0008, 0.0002, 0.7968, 0.0005, 0.0008, 0.1698, 0.0041],
+        [0.0322, 0.0005, 0.0050, 0.0837, 0.0615, 0.0514, 0.2231],
+        [0.0366, 0.0004, 0.0001, 0.0733, 0.4509, 0.0036, 0.0036],
+        [0.0096, 0.0176, 0.0014, 0.0086, 0.1216, 0.0177, 0.0068],
+        [0.0068, 0.0102, 0.1011, 0.1012, 0.0120, 0.0728, 0.0479],
+        [0.1147, 0.0021, 0.0002, 0.2157, 0.4744, 0.0102, 0.0017]])
+    trans_rows = {'<s>': 0, 'NNP': 1, 'MD': 2, 'VB': 3, 'JJ': 4, 'NN': 5, 'RB': 6, 'DT': 7}
+    trans_cols = {'NNP' : 0, 'MD': 1, 'VB': 2, 'JJ': 3, 'NN': 4, 'RB': 5, 'DT': 6}
+    observ_matrix = np.array([
+        [0.000032, 0, 0, 0.000048, 0],
+        [0, 0.308431, 0, 0, 0],
+        [0, 0.000028, 0.000672, 0, 0.000028],
+        [0, 0, 0.000340, 0, 0],
+        [0, 0.000200, 0.000223, 0, 0.002337],
+        [0, 0, 0.010446, 0, 0],
+        [0, 0, 0, 0.506099, 0]])
+    observ_rows = {'NNP': 0, 'MD': 1, 'VB': 2, 'JJ': 3, 'NN': 4, 'RB': 5, 'DT': 6}
+    observ_cols = {'Janet': 0, 'will': 1, 'back': 2, 'the': 3, 'bill': 4}
+    
+    tests = ['Janet will back the bill',
+            'will Janet back the bill',
+            'back the bill Janet will']
+    
+    # proccess text
+    tests = [test.split(' ') for test in tests]
+
+    # assign POS Tags
+    pos_tags = []
+    pos_probs = []
+    for test in tests:
+        tags, probs = viberti(test, trans_matrix, observ_matrix,
+                trans_rows, trans_cols, observ_rows, observ_cols)
+        pos_tags.append(tags)
+        pos_probs.append(probs)
+    
+    # display results
+    for test, tags, probs in zip(tests, pos_tags, pos_probs):
+        print('POS Tags for "{}"'.format(' '.join(test)))
+        for x, tag, prob in zip(test, tags, probs):
+            print('Word {} - Tag {} - Prob {}'.format(x, tag, prob))
+
+        print()
 
     return None
 
@@ -239,4 +363,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
     # execute
-    main(parser.parse_args())
+    print('POS Tagging with HMM')
+    part_1(parser.parse_args())
+
+    print("POS Tagging with HMM in Viberti coding algorithm")
+    part_2()

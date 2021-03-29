@@ -51,7 +51,7 @@ def input_fn(path, height, width, batch_size, seed = 2021):
     #  map transformations
     dataset = dataset.cache().shuffle(1000).batch(batch_size)
 
-    return dataset.prefetch(buffer_size = tf.data.AUTOTUNE)
+    return dataset
 
 def create_model(num_class, shape):
     """

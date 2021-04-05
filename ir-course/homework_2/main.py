@@ -515,6 +515,8 @@ def main(args):
     # get stop words
     stop_words = []
 
+    # construct index
+    print('Index Construction')
     # build index with lemmas
     postings = []
     for file, f_idx in zip(files, range(1, len(files) + 1)):

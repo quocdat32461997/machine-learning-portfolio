@@ -17,7 +17,7 @@ python3 main.py --path PATH_TO_CRANFIELD_DIRECOTRY
 * Each text file is then parsed into a **Document** object that holds document length, maximum frequency, and document id, and word frequency dictionary
 * All **Document** objects are then merged together into a single **Index** object for either "lemma" or "stem"
 * Then **Index** objects are inverted (alphebetically sorted). The returns of "invert" is 2 objects: **Posting** and **Dictionary** for the correponding posting list and dictionary
-* Then **Posting** and ** Dictionary** objects are compressed based on the given requirements. The results of compression are stored into separate variables within the objects. This is done purposely because the retrieval mechanisms for compressed posting lists and dictionarys are not implemented yet.
+* Then **Posting** and **Dictionary** objects are compressed based on the given requirements. The results of compression are stored into separate variables within the objects. This is done purposely because the retrieval mechanisms for compressed posting lists and dictionarys are not implemented yet.
 * Finally, the program display results as requested below
 
 ## Results

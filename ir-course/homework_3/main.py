@@ -16,6 +16,7 @@ from collections import defaultdict
 
 import index
 import utils
+import query
 
 def main(args):
     """
@@ -48,38 +49,56 @@ def main(args):
     ## merge into big index
     lem_index = index.Index()
     lem_index.build(lem_docs)
-    lem_posting, lem_dict = lem_index.invert()
+    lem_postings, lem_dict = lem_index.invert()
 
-    # compressd dictionary
-    lem_dict.compress(k = 4, method = 'blocking')
+    print('Finish index construction')
 
-    # compress posting list
-    lem_posting.compress(method = 'gamma')
+    # read queries
+    with open('./hw3.queries') as file:
+        queries = file.read().split('\n\n')
 
-    #**************************
+    # initialize Query object
+    querier = query.Query(
+            docs = lem_docs,
+            index = lem_index,
+            postings = lem_postings,
+            vocabs = lem_dict)
 
-    # build index with stems
-    stem_docs = index.Documents()
-    for file, f_idx in zip(files, range(1, len(files) + 1)):
-        # read text
-        with open(file) as f:
-            text = f.read()
+    # parse query and retrieve documents
+    w1_docs = defaultdict()
+    w2_docs = defaultdict()
+    for q in queries:
+        # parse query
+        text = querier.parse(q)
 
-        # parse
-        doc = index.Document(doc_idx = f_idx)
-        doc.parse(text, stop_words, proc_fn = utils.stem)
-        stem_docs.update(doc)
+        # retrieve documents
+        w1_docs[q] = querier.retrieve(freq = text, mode = 'w1')
+        w2_docs[q] = querier.retrieve(freq = text, mode = 'w2')
 
-    ## merge to a big index
-    stem_index = index.Index()
-    stem_index.build(stem_docs)
-    stem_posting, stem_dict = stem_index.invert()
+    # display results
+    print("For weighting 1 function")
+    for q, doc in w1_docs.items():
+        print("Query {} has vector = {}".format(q, doc[1]))
 
-    # compress dictionary
-    stem_dict.compress(k = 4, method = 'front-coding')
+        # print ranked documents
+        docs = doc[0]
+        doc_vectors = doc[-1]
+        print("Top 5 documents is:")
+        for x in range(5):
+            print('Document {} with rank {} has cosine similarity score = {} and document vector = {}'.format(docs[x][0], x + 1, docs[x][-1], doc_vectors[docs[x][0]]))
+            print("Document {} has the headline: {}".format(docs[x][0], lem_docs._dict[docs[x][0]]._text))
 
-    # compress posting
-    stem_posting.compress(method = 'delta')
+    print("For weighting 2 function")
+    for q, doc in w2_docs.items():
+        print("Query {} has vector = {}".format(q, doc[1]))
+
+        # print ranked documents
+        docs = doc[0]
+        doc_vectors = doc[-1]
+        print("Top 5 documents is:")
+        for x in range(5):
+            print('Document {} with rank {} has cosine similarity score = {} and document vector = {}'.format(docs[x][0], x + 1, docs[x][-1], doc_vectors[docs[x][0]]))
+            print("Document {} has the headline: {}".format(docs[x][0],lem_docs._dict[docs[x][0]]._text))
 
 if __name__ == '__main__':
     # initialize argument parser

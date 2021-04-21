@@ -9,24 +9,6 @@ from collections import defaultdict
 
 import utils
 
-class DocNode(object):
-    """
-    DocNode - a unidirected linked list
-    """
-    def __init__(self,
-            count:int = 1,
-            doc_idx: int = -1,
-            prev:'DocNode' = None,
-            nxt:'DocNode' = None):
-        self._count = count
-        self._doc_idx = doc_idx
-        self._prev = prev
-        self._next = nxt
-
-    def update(self, prev:'DocNode' = None, nxt:'DocNode' = None):
-        self._prev = prev or self._prev
-        self._next = nxt or self._next
-
 class Index(object):
     def __init__(self):
         self._postings = defaultdict(list)
@@ -197,6 +179,7 @@ class Document(object):
         self._doclen = 0
         self._doc_idx = doc_idx
         self._dict = defaultdict(int)
+        self._text = None
     
     def parse(self,
             text,
@@ -215,6 +198,7 @@ class Document(object):
 
         # proceess text
         text = utils.process(text)
+        self._text = text
 
         # tokenize
         text = utils.tokenize(text)

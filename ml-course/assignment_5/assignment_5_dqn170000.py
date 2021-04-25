@@ -144,7 +144,6 @@ def main():
                 img = koala_img.copy(), epochs = epochs,
                 patience = patience, delta = delta)
     print('Save compressed Koala images')
-    img2 = Image.fromarray(array)
     for k_c, img in koala_results.items():
         img = Image.fromarray(img)
         img.save('koala_k_cluster_{}.png'.format(k_c))
@@ -153,7 +152,7 @@ def main():
 
     # compress Koala image
     print('Read Penguin Image')
-    penguin = 'penguin.img'
+    penguin = 'Penguins.jpg'
     penguin_img = io.imread(penguin)
 
     print('Compress Penguin Image')
@@ -165,7 +164,6 @@ def main():
                 img = penguin_img.copy(), epochs = epochs,
                 patience = patience, delta = delta)
     print('Save compressed Penguin images')
-    img2 = Image.fromarray(array)
     for k_c, img in penguin_results.items():
         img = Image.fromarray(img)
         img.save('penguin_k_cluster_{}.png'.format(k_c))

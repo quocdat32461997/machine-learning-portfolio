@@ -31,7 +31,7 @@ This consists:
 - [Name Entity Recognizer](https://github.com/quocdat32461997/NER) Implemented **BiLSTM-CRF** for **Name Entity Recognition**, built the data pipeline in *Tensorflow*, and deploy in *Flask*
 - [Intent Classifier](https://github.com/quocdat32461997/intent_classifier)
     - Trained **Suport-Vector-Machine (SVM) and GradientBoosting** on text features extracted by **TF-IDF** for Intent-Classification tasks. Accuracy: 97% for training and 80% validation
-- [CS6320: NLP final project - Borot](https://github.com/quocdat32461997/borot)
+- [Borot](https://github.com/quocdat32461997/borot)
     -	Built **Chatbot Question & Answering** with *Flask, Scikit-learn, Tensorflow, and SQL*.
     - Implemented **Information Retrieval** with **Intent Classifier (SVM), Name-Entity-Recognizer (BiLSTM-CRF) and TF-IDF** to retrieve answers in response to questions. Implemented OOP to collect users’ QA queries for personalization.
 - [Mask-RCNN](https://github.com/quocdat32461997/Mask_RCNN) - Implementation of Mask-RCNN in Tensorflow >= 2.0.0
@@ -40,6 +40,10 @@ This consists:
 - [Emorecom, ICDAR2021 Competition – Multimodal Emotion Recognition on Comic scenes](https://github.com/aisutd/emorecom)
     - Developed a multimodal Deep Learning model composed of CNN (ResNet, FaceNet) for visual features and RNN/BERT for textual features to detect emotion on comic scenes. Ranked 13th.
     - Utilized Tensorflow Data/string/image and OpenCV to build image/text augmentation pipeline and the TFRecord data pipeline.
+- [h-at (Information Extraction)](https://github.com/quocdat32461997/h-at)
+    - Developed a Python program to extract template-based information by designing rules and utilizing Dependency Parsing, Name Entities, and POS tags.
+- [Find-unicorns (search engine)](https://github.com/quocdat32461997/find_unicorns)
+    - Developed a search engine by crawling & scrapping (>100k links), implementing ranking algorithms (TF-IDF, HITS, PageRank).
 ---
 
 ## Blogs and Workshops
@@ -117,6 +121,22 @@ Learning](https://arxiv.org/pdf/2003.10471.pdf)
     - Label noise is common in large-scale datasets or in active learning when samples are labeled by non-experts
 - [Exploiting Context for Robustness to Label Noise in Active Learning](https://arxiv.org/pdf/2010.09066.pdf)
     - Proposed to exploit graphical context to improve CNN's performance in classification tasks.
+#### Knowledge Distillation
+- [Knowledge Distillation: A Survey](https://arxiv.org/abs/2006.05525)
+    - A literature review of Knowlege Distillation techniques
+    - By:
+      - Knowledge: response-based, feature-based, and relation-based
+      - Schemes: offline-distillation, online-distillation, and self-distllation
+      - Algorithms: attention-based, adversarial-based, cross-modal, multi-teacher, graph-based, data-free, quantization-based, NAS-based
+    - Knowledge distillation's applications in CV, NLP, Speech Recognition
+    - I personally found **data-free** algo useful when huge distilling huge models to smaller models (e.g. T5-3B to T5-small) without data in-hand.
+- [Adversarial Self-Supervised Data-Free Distillation for Text Classification](https://www.aclweb.org/anthology/2020.emnlp-main.499.pdf)
+    - A data-free distillation algorithm to distill BERT-large to smaller BERTs without ready in-hand.
+    - Idea: use BERT-teacher to generate and optimize synthetic embeddings (i.e. ignore discrete text that is hard to generate) that serve as inputs to BERT-student.
+    - Update: I utilized this method to distil T5-3B to T5-small with minor modifications for Grammar Error Correction.
+- [Be Your Own Teacher: Improve the Performance of Convolutional Neural Networks via Self Distillation](https://arxiv.org/pdf/1905.08094.pdf)
+    - An self-distillation scheme for ResNet that each low-level module is a student network. In training, the teacher (whole ResNet) and students (sub-ResNet modules) are trained and optimized simulatenously by losses: KL-divergence & cross-entropy
+    - Notes: useful when distilling huge models (e..g T5-3B, T5-11B, or GPT-#)
 ---
 
 ## Machine-learning-engineer interview prep
